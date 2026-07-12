@@ -1,0 +1,879 @@
+/* =========================
+   Global Settings
+========================= */
+
+
+:root{
+
+    --primary:#4aad9f;
+
+    --secondary:#406763;
+
+    --accent:#14B8A6;
+
+    --background:#F8FAFC;
+
+    --white:#FFFFFF;
+
+    --dark:#12394d;
+
+}
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    font-family:'Cairo', sans-serif;
+
+    background:var(--background);
+
+    color:var(--dark);
+
+    line-height:1.8;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+
+/* =========================
+   Navbar
+========================= */
+
+
+.navbar{
+
+    padding:12px 0;
+
+}
+
+
+.navbar-brand img{
+
+    object-fit:contain;
+
+}
+
+
+
+.nav-link{
+
+    color:var(--dark);
+
+    font-weight:600;
+
+    margin:0 8px;
+
+    transition:.3s;
+
+}
+
+
+.nav-link:hover{
+
+    color:var(--primary);
+
+}
+
+
+
+.language{
+
+    width:110px;
+
+    margin-right:20px;
+
+}
+
+
+
+/* =========================
+   Hero Section
+========================= */
+
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-top:100px;
+
+    background:
+
+    linear-gradient(
+    rgba(248,250,252,.85),
+    rgba(248,250,252,.85)
+    ),
+
+    url("../images/clinic-bg.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+
+.hero h1{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    color:var(--dark);
+
+}
+
+
+.hero h3{
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+
+.hero p{
+
+    font-size:18px;
+
+    color:#555;
+
+}
+
+
+
+.hero-buttons .btn{
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    margin:5px;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-primary{
+
+    background:var(--primary);
+
+    border:none;
+
+}
+
+
+.btn-primary:hover{
+
+    background:var(--secondary);
+
+}
+
+
+
+.doctor-image{
+
+    max-height:550px;
+
+    border-radius:30px;
+
+}
+
+
+
+/* =========================
+   Sections
+========================= */
+
+
+.section{
+
+    padding:90px 0;
+
+}
+
+
+
+.section h2{
+
+    font-size:36px;
+
+    font-weight:800;
+
+    color:var(--dark);
+
+    margin-bottom:40px;
+
+    position:relative;
+
+    text-align:center;
+
+}
+
+
+
+.section h2:after{
+
+    content:"";
+
+    width:70px;
+
+    height:4px;
+
+    background:var(--primary);
+
+    display:block;
+
+    margin:15px auto;
+
+    border-radius:10px;
+
+}
+
+
+
+
+/* =========================
+   About
+========================= */
+
+
+#about img{
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.1);
+
+}
+
+
+
+#about p{
+
+    font-size:17px;
+
+    color:#555;
+
+}
+
+
+
+
+/* =========================
+   Services
+========================= */
+
+
+.service-card{
+
+
+    background:var(--white);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    height:100%;
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.05);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.service-card:hover{
+
+
+    transform:translateY(-10px);
+
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.12);
+
+
+}
+
+
+
+.service-card h4{
+
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.service-card p{
+
+    color:#666;
+
+}
+
+
+
+/* =========================
+   Map
+========================= */
+
+
+.map iframe{
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.1);
+
+}
+
+
+
+/* =========================
+   Footer
+========================= */
+
+
+footer{
+
+    background:var(--dark);
+
+    color:white;
+
+    padding:40px 0;
+
+}
+
+
+
+footer img{
+
+    margin-bottom:15px;
+
+}
+
+
+
+footer a{
+
+    color:white;
+
+    margin:0 8px;
+
+    transition:.3s;
+
+}
+
+
+footer a:hover{
+
+    color:var(--accent);
+
+}
+
+
+
+/* =========================
+   Floating WhatsApp
+========================= */
+
+
+.whatsapp{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    z-index:999;
+
+}
+
+
+
+
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+
+@media(max-width:768px){
+
+
+.hero h1{
+
+    font-size:32px;
+
+}
+
+
+
+.hero{
+
+    text-align:center;
+
+}
+
+
+
+.doctor-image{
+
+    margin-top:30px;
+
+}
+
+
+
+.section{
+
+    padding:60px 0;
+
+}
+
+
+
+.language{
+
+    margin-top:10px;
+
+}
+
+
+
+}
+
+
+.floating-whatsapp{
+
+
+position:fixed;
+
+bottom:25px;
+
+left:25px;
+
+width:65px;
+
+height:65px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:999;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.2);
+
+}
+
+
+.floating-whatsapp img{
+
+width:35px;
+
+}
+
+
+/* =====================
+Certificates
+===================== */
+
+
+.certificate-card{
+
+
+background:white;
+
+border-radius:20px;
+
+padding:20px;
+
+text-align:center;
+
+height:100%;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.06);
+
+transition:.4s;
+
+
+}
+
+
+
+.certificate-card:hover{
+
+
+transform:translateY(-10px);
+
+
+}
+
+
+
+.certificate-card img{
+
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+margin-bottom:20px;
+
+
+}
+
+
+
+.certificate-card h5{
+
+
+color:var(--dark);
+
+font-weight:700;
+
+
+}
+
+
+
+.certificate-card p{
+
+
+color:var(--primary);
+
+
+}
+
+
+/* =====================
+Gallery
+===================== */
+
+
+.cases-slider{
+
+padding:20px;
+
+}
+
+
+
+.swiper-slide{
+
+
+height:350px;
+
+
+}
+
+
+
+.swiper-slide img{
+
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+border-radius:25px;
+
+
+}
+
+
+.case-card{
+
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+
+}
+
+
+
+.case-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.case-card img{
+
+
+width:100%;
+
+height:300px;
+
+object-fit:cover;
+
+
+}
+
+
+
+.case-card h4{
+
+
+padding:20px 20px 5px;
+
+color:var(--primary);
+
+
+}
+
+
+
+.case-card p{
+
+
+padding:0 20px 20px;
+
+color:#666;
+
+
+}
+
+
+.review-card{
+
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+height:100%;
+
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+
+transition:.3s;
+
+
+}
+
+
+
+.review-card:hover{
+
+
+transform:translateY(-8px);
+
+
+}
+
+
+
+.review-card .stars{
+
+
+color:#FFD700;
+
+font-size:25px;
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.review-card h5{
+
+
+color:var(--dark);
+
+font-weight:bold;
+
+
+}
+
+
+
+.review-card p{
+
+
+color:#666;
+
+
+}
+
+/* ==========================
+Cases Coverflow
+========================== */
+
+
+.cases-section{
+
+background:#f8fafc;
+
+overflow:hidden;
+
+}
+
+
+
+.cases-coverflow{
+
+
+padding:60px 0;
+
+
+}
+
+
+
+.cases-coverflow .swiper-slide{
+
+
+width:220px;
+
+height:320px;
+
+
+transition:.4s;
+
+
+}
+
+
+
+.cases-coverflow .swiper-slide img{
+
+
+width:100%;
+
+height:100%;
+
+
+object-fit:cover;
+
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.15);
+
+
+}
+
+
+
+.cases-coverflow .swiper-slide-active img{
+
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.25);
+
+
+}
+
+
+
+.swiper-button-next,
+.swiper-button-prev{
+
+
+color:var(--primary);
+
+
+}
