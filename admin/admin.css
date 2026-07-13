@@ -1,37 +1,41 @@
-:root{
+:root {
 
---primary:#4aad9f;
-
---secondary:#406763;
-
---dark:#12394d;
-
---bg:#f8fafc;
+    --primary:#4aad9f;
+    --secondary:#406763;
+    --accent:#14B8A6;
+    --background:#F8FAFC;
+    --white:#FFFFFF;
+    --dark:#12394d;
 
 }
+
+
+*{
+
+box-sizing:border-box;
+font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+
+}
+
 
 
 body{
 
-font-family:'Cairo',sans-serif;
+margin:0;
 
-background:var(--bg);
+background:var(--background);
 
-direction:rtl;
+color:var(--dark);
 
 }
 
 
-/* Sidebar */
 
+/* Sidebar */
 
 .sidebar{
 
 position:fixed;
-
-right:0;
-
-top:0;
 
 width:260px;
 
@@ -39,17 +43,19 @@ height:100vh;
 
 background:var(--dark);
 
-color:white;
+color:var(--white);
 
-padding:30px 20px;
+padding:25px;
 
 }
 
 
 
-.sidebar h3{
+.sidebar h2{
 
 text-align:center;
+
+color:var(--white);
 
 margin-bottom:40px;
 
@@ -61,13 +67,15 @@ margin-bottom:40px;
 
 display:block;
 
-color:white;
+color:var(--white);
 
-padding:15px;
+text-decoration:none;
 
-border-radius:10px;
+padding:14px 18px;
 
-margin-bottom:10px;
+margin-bottom:12px;
+
+border-radius:12px;
 
 transition:.3s;
 
@@ -79,18 +87,38 @@ transition:.3s;
 
 background:var(--primary);
 
+color:var(--white);
+
 }
 
 
 
-/* Content */
+/* Main */
+
+.main{
+
+margin-left:260px;
+
+padding:35px;
+
+}
 
 
-.content{
 
-margin-right:260px;
+/* Header */
 
-padding:40px;
+.topbar{
+
+background:var(--white);
+
+padding:22px;
+
+border-radius:18px;
+
+box-shadow:
+0 8px 25px rgba(18,57,77,.08);
+
+margin-bottom:30px;
 
 }
 
@@ -98,63 +126,141 @@ padding:40px;
 
 /* Cards */
 
+.cards{
 
-.stat-card{
+display:grid;
 
-background:white;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:var(--white);
 
 padding:25px;
 
 border-radius:20px;
 
 box-shadow:
+0 8px 25px rgba(18,57,77,.08);
 
-0 10px 30px rgba(0,0,0,.05);
-
-}
-
-
-
-.stat-card h2{
-
-color:var(--primary);
-
-font-size:35px;
+border-top:4px solid var(--primary);
 
 }
 
 
 
+.card h3{
 
-.table-box{
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
+color:var(--secondary);
 
 }
 
 
-/* ==========================
-   General Pages
-========================== */
+
+.card h1{
+
+color:var(--dark);
+
+}
 
 
-.page-header{
 
-background:
+/* Buttons */
 
-linear-gradient(
-135deg,
-#4aad9f,
-#406763
-);
+.btn{
+
+background:var(--primary);
 
 color:white;
 
-padding:120px 0 70px;
+border:none;
+
+padding:12px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+background:var(--accent);
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+
+.main{
+
+margin:0;
+
+}
+
+
+}
+
+
+.admin-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+
+
+.admin-table th{
+
+background:#12394d;
+
+color:white;
+
+padding:15px;
+
+}
+
+
+
+.admin-table td{
+
+padding:15px;
+
+border-bottom:1px solid #eee;
 
 text-align:center;
 
@@ -162,229 +268,29 @@ text-align:center;
 
 
 
-.page-header h1{
-
-font-size:45px;
-
-font-weight:800;
-
-}
-
-
-
-
-
-/* ==========================
-Gallery Page
-========================== */
-
-
-.gallery-page{
-
-padding:80px 0;
-
-}
-
-
-
-.gallery-card{
-
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:
-
-0 10px 35px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-
-
-.gallery-card:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-.gallery-card img{
-
-
-width:100%;
-
-height:350px;
-
-object-fit:cover;
-
-
-}
-
-
-
-.gallery-card .info{
-
-
-padding:25px;
-
-}
-
-
-
-
-/* ==========================
-Reviews
-========================== */
-
-
-.review-box{
-
-
-background:white;
-
-padding:35px;
-
-border-radius:25px;
-
-height:100%;
-
-
-box-shadow:
-
-0 10px 30px rgba(0,0,0,.08);
-
-
-transition:.3s;
-
-
-}
-
-
-
-.review-box:hover{
-
-
-transform:translateY(-8px);
-
-
-}
-
-
-
-.review-stars{
-
-
-color:#FFC107;
-
-font-size:25px;
-
-}
-
-
-
-/* ==========================
-Forms
-========================== */
-
-
-.form-control{
-
-
-border-radius:15px;
-
-padding:14px;
-
-border:1px solid #ddd;
-
-
-}
-
-
-.form-control:focus{
-
-
-border-color:#4aad9f;
-
-box-shadow:none;
-
-
-}
-
-
-
-.main-btn{
-
+.active{
 
 background:#4aad9f;
 
 color:white;
 
-border:none;
-
-padding:14px 35px;
-
-border-radius:30px;
-
-font-weight:bold;
-
-
-}
-
-
-
-.main-btn:hover{
-
-
-background:#406763;
-
-color:white;
-
-
-}
-
-
-
-/* ==========================
-Admin Tables
-========================== */
-
-
-.admin-table{
-
-
-background:white;
+padding:6px 15px;
 
 border-radius:20px;
 
-padding:25px;
-
-
 }
 
 
 
-.table{
+.hidden{
 
+background:#999;
 
-vertical-align:middle;
+color:white;
 
-}
+padding:6px 15px;
 
-
-
-.table img{
-
-
-border-radius:10px;
-
-object-fit:cover;
-
+border-radius:20px;
 
 }
 
@@ -392,55 +298,14 @@ object-fit:cover;
 
 .delete-btn{
 
-
-background:#dc3545;
-
-color:white;
-
-padding:8px 15px;
-
-border-radius:20px;
-
-}
-
-
-
-.edit-btn{
-
-
-background:#14B8A6;
+background:#dc2626;
 
 color:white;
 
-padding:8px 15px;
+padding:10px 20px;
 
-border-radius:20px;
+border-radius:10px;
 
-
-}
-
-
-
-/* ==========================
-Mobile
-========================== */
-
-
-@media(max-width:768px){
-
-
-.page-header h1{
-
-font-size:32px;
-
-}
-
-
-.gallery-card img{
-
-height:250px;
-
-}
-
+text-decoration:none;
 
 }

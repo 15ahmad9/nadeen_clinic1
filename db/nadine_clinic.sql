@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2026 at 09:44 PM
+-- Generation Time: Jul 13, 2026 at 11:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `admins` (
+CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -35,27 +35,11 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `admins`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admins` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'admin', '$2y$10$lgP3SMzuF0vf7O5n4lrcG.bp/upC7m9UxnVPNI.T0a8Ylp7x/kyVS', '2026-07-12 17:57:04');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `appointments`
---
-
-CREATE TABLE `appointments` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `appointment_date` date DEFAULT NULL,
-  `message` text DEFAULT NULL,
-  `status` enum('new','confirmed','cancelled') DEFAULT 'new',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `admin` (`id`, `username`, `password`, `created_at`) VALUES
+(1, 'admin', '$2y$10$bUWixdkkD308L2cbBz39uOwNl/LryYh7eh7M5QAfE1l2Hr3gmezfy', '2026-07-13 17:33:56');
 
 -- --------------------------------------------------------
 
@@ -67,8 +51,16 @@ CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` enum('active','hidden') DEFAULT 'active'
+  `before_image` varchar(255) DEFAULT NULL,
+  `after_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `image`, `created_at`, `before_image`, `after_image`) VALUES
+(16, '', '2026-07-13 20:11:46', '6a554682b9905_before.jpeg', '6a554682b9dc0_after.jpeg');
 
 -- --------------------------------------------------------
 
@@ -78,9 +70,11 @@ CREATE TABLE `gallery` (
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `message` text DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `message` text NOT NULL,
+  `status` enum('new','read') DEFAULT 'new',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -92,28 +86,31 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `rating` int(11) DEFAULT 5,
-  `comment` text DEFAULT NULL,
-  `google_link` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `name` varchar(100) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `review` text NOT NULL,
+  `status` enum('pending','approved') DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `name`, `rating`, `review`, `status`, `created_at`, `avatar`) VALUES
+(1, 'admin', 5, 'خدمة رائعة', 'approved', '2026-07-13 18:09:26', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admins`
+-- Indexes for table `admin`
 --
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `appointments`
---
-ALTER TABLE `appointments`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `gallery`
@@ -138,22 +135,16 @@ ALTER TABLE `reviews`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT for table `admin`
 --
-ALTER TABLE `admins`
+ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `appointments`
---
-ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -165,7 +156,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

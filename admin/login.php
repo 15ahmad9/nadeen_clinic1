@@ -14,8 +14,8 @@ $password=$_POST['password'];
 
 
 
-$stmt=$conn->prepare(
-"SELECT * FROM admins WHERE username=?"
+$stmt=$pdo->prepare(
+"SELECT * FROM admin WHERE username=?"
 );
 
 
@@ -29,10 +29,12 @@ $admin=$stmt->fetch();
 if($admin && password_verify($password,$admin['password'])){
 
 
-$_SESSION['admin']=$admin['username'];
+$_SESSION['admin_id']=$admin['id'];
+
+$_SESSION['admin_username']=$admin['username'];
 
 
-header("Location:dashboard.php");
+header("Location: dashboard.php");
 
 exit;
 
@@ -40,14 +42,13 @@ exit;
 }else{
 
 
-$error="بيانات الدخول غير صحيحة";
+$error="Invalid Login";
 
 
 }
 
 
 }
-
 
 ?>
 
@@ -55,13 +56,7 @@ $error="بيانات الدخول غير صحيحة";
 <form method="POST">
 
 
-<h2>
-Admin Login
-</h2>
-
-
 <input 
-type="text"
 name="username"
 placeholder="Username">
 
@@ -73,11 +68,8 @@ placeholder="Password">
 
 
 <button name="login">
-
-دخول
-
+Login
 </button>
-
 
 
 </form>

@@ -1,90 +1,18 @@
 <?php
-require "config/database.php";
 
-require "config/language.php";
+require "includes/language.php";
+
 ?>
 
 <!DOCTYPE html>
-<html 
 
-lang="<?= $langCode ?>"
+<html lang="<?=t('lang_code')?>"
+dir="<?=t('dir')?>">
 
-dir="<?= $langCode=='ar'?'rtl':'ltr' ?>"
-
->
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description"
-
-content="عيادة د. نادين عطاري لتقويم الأسنان وطب الأسنان في عمان الأردن. خدمات تقويم الأسنان، التجميل، الزراعة، والفينيير.">
-
-
-<meta name="keywords"
-
-content="تقويم اسنان عمان, د نادين عطاري, طبيبة اسنان عمان, orthodontist jordan">
-
-
-<meta name="author"
-
-content="Dr Nadine Attari">
-
-
-<meta name="robots"
-
-content="index, follow">
-
-<!-- 444444444444444444444444444444444444 -->
-<link rel="canonical"
-href="https://.com">
-<!-- 444444444444444444444444444444
-  -->
-
-  <meta property="og:title"
-
-content="عيادة د. نادين عطاري">
-
-
-<meta property="og:description"
-
-content="تقويم الأسنان وطب الأسنان في عمان الأردن">
-
-
-<meta property="og:image"
-
-content="assets/images/logo.png">
-
-
-<meta property="og:type"
-
-content="website">
-
-
-<title>
-عيادة د. نادين عطاري | تقويم الأسنان وطب الأسنان
-</title>
-
-
-<!-- Bootstrap -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-<!-- Google Font -->
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-
-<!-- CSS -->
-
 <link rel="stylesheet" href="assets/css/style.css">
-
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 </head>
 
@@ -92,160 +20,46 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <body>
 
 
-<!-- ================= NAVBAR ================= -->
+<?php include "includes/navbar.php"; ?>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-
-<div class="container">
-
-
-<a class="navbar-brand" href="index.php">
-
-<img src="assets/images/logo.png">
-
-</a>
-
-
-
-<button class="navbar-toggler"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbarMenu">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-
-
-<div class="collapse navbar-collapse"
-id="navbarMenu">
-
-
-<ul class="navbar-nav mx-auto">
-
-
-<li class="nav-item">
-<a href="#home" class="nav-link">
-الرئيسية
-</a>
-</li>
-
-
-<li>
-<a href="#about" class="nav-link">
-عن الدكتورة
-</a>
-</li>
-
-
-<li>
-<a href="#services" class="nav-link">
-الخدمات
-</a>
-</li>
-
-
-<li>
-<a href="gallery.php" class="nav-link">
-الحالات
-</a>
-</li>
-
-
-<li>
-<a href="reviews.php" class="nav-link">
-التقييمات
-</a>
-</li>
-
-
-<li>
-<a href="#location" class="nav-link">
-موقع العيادة
-</a>
-</li>
-
-
-
-</ul>
-
-
-
-<a href="#booking"
-class="appointment-btn">
-
-احجز موعد
-
-</a>
-
-
-<div class="language-switch">
-
-
-<a href="?lang=ar">
-AR
-</a>
-
-
-|
-
-<a href="?lang=en">
-EN
-</a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</nav>
-
-<!-- ================= HERO ================= -->
 
 
 <section class="hero">
 
 
-<div class="container">
+<div class="hero-overlay">
 
 
-<div class="row align-items-center">
+<div class="hero-container">
 
 
-<div class="col-lg-6">
+
+
+
+<div class="hero-content">
+
 
 
 <h1>
 
-عيادة د. نادين عطاري
+<?=t('hero_title')?>
 
 </h1>
 
 
-<h3>
 
-لتقويم الأسنان وطب الأسنان
+<h2>
 
-</h3>
+<?=t('clinic_name')?>
+
+</h2>
+
 
 
 
 <p>
 
-
-أهلاً وسهلاً بكم في عيادة د. نادين عطاري
-لتقويم الأسنان وطب الأسنان في عمّان، الأردن.
-
-نؤمن أن الابتسامة الصحية والجميلة تبدأ من
-رعاية دقيقة، تعامل لطيف، وخطة علاجية
-تناسب كل مريض حسب احتياجاته.
-
+<?=t('hero_description')?>
 
 </p>
 
@@ -255,28 +69,31 @@ EN
 <div class="hero-buttons">
 
 
-<a href="https://wa.me/962796900000"
-class="btn btn-primary">
+<a class="btn whatsapp"
+href="https://wa.me/962796900000"
+target="_blank">
 
-واتساب
-
-</a>
-
-
-
-<a href="tel:0796900000"
-class="btn btn-dark">
-
-اتصال
+<?=t('whatsapp')?>
 
 </a>
 
 
 
-<a href="https://www.instagram.com/dr"
-class="btn btn-outline-dark">
+<a class="btn call"
+href="tel:0796900000">
 
-انستغرام
+<?=t('call')?>
+
+</a>
+
+
+
+
+<a class="btn instagram"
+href="https://www.instagram.com/drnadeenattari"
+target="_blank">
+
+<?=t('instagram')?>
 
 </a>
 
@@ -285,264 +102,180 @@ class="btn btn-outline-dark">
 </div>
 
 
+<div class="hero-certificates">
+
+
+<div>
+<span>✓</span>
+<?=t('certificate_1')?>
 </div>
 
 
+<div>
+<span>✓</span>
+<?=t('certificate_2')?>
+</div>
 
 
-<div class="col-lg-6 text-center">
+<div>
+<span>✓</span>
+<?=t('certificate_3')?>
+</div>
+
+
+<div>
+<span>✓</span>
+<?=t('certificate_4')?>
+</div>
+
+<div>
+<span>✓</span>
+<?=t('certificate_5')?>
+</div>
+
+</div>
+
+
+</div>
+
+<div class="hero-image">
+
+
+<div class="doctor-frame">
+
+
+<img src="assets/images/doctor_hero.png"
+alt="Dr Nadeen">
+
+
+<div class="doctor-card">
+
+<h4>
+<?=t('doctor_name')?>
+</h4>
+
+
+<p>
+<?=t('doctor_specialty')?>
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<section class="about-section">
+
+
+<div class="about-container">
+
+
+
+<!-- Doctor Image -->
+
+<div class="about-image">
 
 
 <img src="assets/images/doctor.png"
-class="img-fluid doctor-image">
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- ================= ABOUT ================= -->
-
-
-
-<section id="about"
-class="section">
-
-
-<div class="container">
-
-
-<div class="row align-items-center">
-
-
-<div class="col-lg-5">
-
-
-<img src="assets/images/about-doctor.jpg"
-class="img-fluid rounded">
+alt="Dr. Nadeen Attari">
 
 
 </div>
 
 
 
-<div class="col-lg-7">
+
+<!-- Content -->
+
+<div class="about-content">
 
 
-<h2>
-عن الدكتورة نادين عطاري
-</h2>
+<span class="about-label">
 
+<?=t('about')?>
 
-<p>
+</span>
 
-
-الدكتورة نادين عطاري أخصائية تقويم أسنان
-في عمّان، الأردن، متخصصة في تقويم الأسنان،
-تصحيح الإطباق، وتحسين تناسق الابتسامة
-للأطفال والبالغين.
-
-
-</p>
-
-
-<p>
-
-
-حصلت على درجة الماجستير في تقويم الأسنان
-والفكين من الجامعة الأردنية، وهي حاصلة على
-البورد الأردني في تقويم الأسنان وعضوية
-الكلية الملكية للجراحين في إيرلندا.
-
-
-</p>
-
-
-
-<p>
-
-
-كما أنها حاصلة على شهادة في تجميل الوجه
-غير الجراحي، مما يساعدها على تقديم رعاية
-تجمع بين صحة الأسنان وجمال الابتسامة
-وتناسق ملامح الوجه.
-
-
-</p>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-<!-- ================= CERTIFICATES ================= -->
-
-
-<section class="section certificates">
-
-
-<div class="container">
 
 
 <h2>
 
-الشهادات والخبرات
+<?=t('doctor_name')?>
 
 </h2>
 
 
 
-<div class="row g-4">
+
+<h3>
+
+<?=t('doctor_specialty')?>
+
+</h3>
 
 
-
-<div class="col-lg-3 col-md-6">
-
-
-<div class="certificate-card">
-
-
-<img src="assets/images/certificates/master.jpg">
-
-
-<h5>
-
-ماجستير تقويم الأسنان والفكين
-
-</h5>
 
 
 <p>
 
-الجامعة الأردنية
+<?=t('about_description')?>
 
 </p>
 
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="col-lg-3 col-md-6">
-
-
-<div class="certificate-card">
-
-
-<img src="assets/images/certificates/jordan-board.jpg">
-
-
-<h5>
-
-البورد الأردني في تقويم الأسنان
-
-</h5>
 
 
 <p>
 
-Jordanian Board
+<?=t('about_description_3')?>
 
 </p>
 
 
-</div>
 
 
-</div>
+<div class="about-tags">
 
 
+<span>
+<?=t('certificate_1')?>
+</span>
 
 
-
-<div class="col-lg-3 col-md-6">
-
-
-<div class="certificate-card">
+<span>
+<?=t('certificate_2')?>
+</span>
 
 
-<img src="assets/images/certificates/rcs.jpg">
+<span>
+<?=t('certificate_3')?>
+</span>
 
 
-<h5>
+<span>
+<?=t('certificate_4')?>
+</span>
 
-عضوية الكلية الملكية للجراحين
-
-</h5>
-
-
-<p>
-
-Royal College of Surgeons Ireland
-
-</p>
-
+<span>
+<?=t('certificate_5')?>
+</span>
 
 </div>
 
 
 </div>
 
-
-
-
-
-<div class="col-lg-3 col-md-6">
-
-
-<div class="certificate-card">
-
-
-<img src="assets/images/certificates/facial.jpg">
-
-
-<h5>
-
-شهادة تجميل الوجه غير الجراحي
-
-</h5>
-
-
-<p>
-
-Facial Aesthetics
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
 
 
 </div>
@@ -551,93 +284,114 @@ Facial Aesthetics
 </section>
 
 
-
-<!-- ================= SERVICES ================= -->
-
-
-<section id="services"
-class="section bg-light">
+<section class="services-section">
 
 
-<div class="container">
+<div class="section-title">
 
-
-<h2 class="text-center">
-
-خدمات العيادة
-
+<h2>
+<?=t('services_title')?>
 </h2>
 
+<p>
+<?=t('services_description')?>
+</p>
 
-<div class="row mt-5">
-
-
-
-<?php
-
-$services=[
-
-
-"تقويم الأسنان",
-
-"التقويم المعدني",
-
-"التقويم الشفاف",
-
-"التقويم الوظيفي",
-
-"تنظيف الأسنان والعناية باللثة",
-
-"تبييض الأسنان",
-
-"الفينيير",
-
-"تركيبات الأسنان",
-
-"زراعة الأسنان",
-
-"الحشوات التجميلية",
-
-"علاج أسنان الأطفال",
-
-"تجميل الوجه غير الجراحي"
-
-
-];
+</div>
 
 
 
-foreach($services as $service)
-
-{
+<div class="services-grid">
 
 
-echo '
-
-<div class="col-lg-4 col-md-6 mb-4">
 
 <div class="service-card">
 
-<h4>'.$service.'</h4>
+<div class="service-icon">
+🦷
+</div>
+
+<h3>
+<?=t('orthodontics')?>
+</h3>
 
 <p>
-نقدم هذا العلاج بأحدث الطرق الطبية
-وبخبرة متخصصة للحصول على أفضل النتائج.
+<?=t('orthodontics_desc')?>
 </p>
 
 </div>
 
+
+
+
+<div class="service-card">
+
+<div class="service-icon">
+✨
 </div>
 
-';
 
-}
+<h3>
+<?=t('implants')?>
+</h3>
 
 
-?>
+<p>
+<?=t('implants_desc')?>
+</p>
 
 
 </div>
+
+
+
+
+
+<div class="service-card">
+
+
+<div class="service-icon">
+😁
+</div>
+
+
+<h3>
+<?=t('veneers')?>
+</h3>
+
+
+<p>
+<?=t('veneers_desc')?>
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="service-card">
+
+
+<div class="service-icon">
+⭐
+</div>
+
+
+<h3>
+<?=t('whitening')?>
+</h3>
+
+
+<p>
+<?=t('whitening_desc')?>
+</p>
+
+
+</div>
+
+
 
 
 </div>
@@ -646,91 +400,100 @@ echo '
 </section>
 
 
-<!-- ================= CASES GALLERY ================= -->
+<section class="gallery-section">
 
-<section class="section cases-section">
 
-<div class="container">
-
+<div class="section-title">
 
 <h2>
-حالات تم علاجها
+<?=t('gallery')?>
 </h2>
 
+</div>
 
-<div class="swiper cases-coverflow">
-
-
-<div class="swiper-wrapper">
+<div class="fixed-gallery">
 
 
-<?php
-
-$stmt = $conn->query(
-"SELECT * FROM gallery ORDER BY id DESC"
-);
+<button class="gallery-arrow prev-case">
+‹
+</button>
 
 
-while($case = $stmt->fetch()){
+
+<div class="gallery-side">
+
+<div class="gallery-side-images" id="leftImages">
 
 
-?>
+<img>
+<img>
 
 
-<div class="swiper-slide">
+</div>
+
+</div>
 
 
-<img src="uploads/cases/<?php echo $case['image']; ?>">
+
+
+
+<div class="gallery-main">
+
+
+<img id="mainCaseImage">
 
 
 </div>
 
 
-<?php } ?>
+
+
+
+<div class="gallery-side">
+
+
+<div class="gallery-side-images" id="rightImages">
+
+
+<img>
+<img>
 
 
 </div>
 
 
-<!-- الأسهم -->
+</div>
 
-<div class="swiper-button-next"></div>
 
-<div class="swiper-button-prev"></div>
+
+<button class="gallery-arrow next-case">
+›
+</button>
+
 
 
 </div>
 
-
-</div>
 
 </section>
 
-<!-- ================= LOCATION ================= -->
+
+<section class="location-section">
 
 
-<section id="location"
-class="section">
+<div class="location-container">
 
 
-<div class="container">
+<div class="map">
 
 
-<h2 class="text-center">
-موقع العيادة
-</h2>
-
-
-<div class="map mt-4">
-
-
-<iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.2292773442277!2d35.89917361353724!3d31.978799105150948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca148adbefc8d%3A0x7ae7dffe654e6345!2zRHIuIE5hZGVlbiBBdHRhcmkgT3J0aG9kb250aWNzICYgRGVudGFsIENsaW5pYyB8INivLiDZhtin2K_ZitmGINi52LfYp9ix2Yog2YTYqtmC2YjZitmFINin2YTYo9iz2YbYp9mGINmI2LfYqCDYp9mE2KPYs9mG2KfZhg!5e1!3m2!1sen!2sjo!4v1783511376776!5m2!1sen!2sjo" 
-width="100%"
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.2292773442277!2d35.89917361353724!3d31.978799105150948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca148adbefc8d%3A0x7ae7dffe654e6345!2zRHIuIE5hZGVlbiBBdHRhcmkgT3J0aG9kb250aWNzICYgRGVudGFsIENsaW5pYyB8INivLiDZhtin2K_ZitmGINi52LfYp9ix2Yog2YTYqtmC2YjZitmFINin2YTYo9iz2YbYp9mGINmI2LfYqCDYp9mE2KPYs9mG2KfZhg!5e1!3m2!1sen!2sjo!4v1783511376776!5m2!1sen!2sjo"
+width="600"
 height="450"
 style="border:0;"
+allowfullscreen=""
 loading="lazy">
-
 </iframe>
 
 
@@ -738,23 +501,63 @@ loading="lazy">
 
 
 
-<div class="text-center mt-4">
+<div class="location-info">
+
+
+<h2>
+<?=t('location_title')?>
+</h2>
+
 
 
 <p>
-☎ 0796900000
+<?=t('phone')?>:
+<br>
+0796900000
 </p>
 
 
+
 <p>
-السبت - الخميس
+<?=t('whatsapp')?>:
 <br>
-10:00 AM - 8:00 PM
+
+<a href="https://wa.me/962796900000">
+0796900000
+</a>
+
+</p>
+
+
+
+<p>
+
+<?=t('instagram')?>:
+
+<br>
+
+<a href="https://www.instagram.com/drnadeenattari">
+
+@drnadeenattari
+
+</a>
+
+
+</p>
+
+
+
+<h3>
+<?=t('working_hours')?>
+</h3>
+
+
+<p>
+<?=t('working_time')?>
 </p>
 
 
 </div>
-
 
 
 </div>
@@ -762,106 +565,10 @@ loading="lazy">
 
 </section>
 
-
-
-
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-
-<div class="container text-center">
-
-
-<img src="assets/images/logo.png"
-width="80">
-
-
-<h4>
-عيادة د. نادين عطاري
-</h4>
-
-
-<p>
-تابعنا على مواقع التواصل الاجتماعي
-</p>
-
-
-
-<a href="#">
-Instagram
-</a>
-
-|
-
-<a href="#">
-Facebook
-</a>
-
-|
-
-<a href="#">
-WhatsApp
-</a>
-
-
-
-</div>
-
-
-</footer>
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<?php include "includes/footer.php"; ?>
 
 <script src="assets/js/main.js"></script>
 
-<a href="https://wa.me/962796900000"
-class="floating-whatsapp">
-
-
-<img src="assets/images/icons/whatsapp.svg">
-
-</a>
-
-<script type="application/ld+json">
-
-{
-
-"@context":"https://schema.org",
-
-"@type":"Dentist",
-
-"name":"Dr. Nadine Attari Dental Clinic",
-
-"address":{
-
-"addressLocality":"Amman",
-
-"addressCountry":"Jordan"
-
-},
-
-
-"telephone":"0796900000",
-
-"openingHours":
-
-"Sa-Th 10:00-20:00"
-
-
-}
-
-</script>
 </body>
 
 </html>

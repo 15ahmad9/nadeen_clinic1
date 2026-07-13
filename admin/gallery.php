@@ -1,116 +1,111 @@
 <?php
 
-
-session_start();
-
-
-if(!isset($_SESSION['admin'])){
-
-header("Location:login.php");
-
-exit;
-
-}
-
+require "auth.php";
 
 require "../config/database.php";
 
 
 
-
-// إضافة صورة
-
-
 if(isset($_POST['upload'])){
 
 
-$title=$_POST['title'];
+$before = $_FILES['before_image'];
 
-
-$image=$_FILES['image']['name'];
-
-
-$tmp=$_FILES['image']['tmp_name'];
+$after = $_FILES['after_image'];
 
 
 
-$path="../uploads/cases/".$image;
+$allowed = [
+    'image/jpeg',
+    'image/png',
+    'image/webp'
+];
 
 
 
-move_uploaded_file($tmp,$path);
+if(
+    in_array($before['type'],$allowed) &&
+    in_array($after['type'],$allowed)
+){
 
 
 
-$stmt=$conn->prepare(
+if(
+    $before['size'] <= 5*1024*1024 &&
+    $after['size'] <= 5*1024*1024
+){
 
-"INSERT INTO gallery(image,title)
-VALUES(?,?)"
 
+
+$beforeName =
+uniqid().'_before.'.
+pathinfo(
+    $before['name'],
+    PATHINFO_EXTENSION
 );
+
+
+
+$afterName =
+uniqid().'_after.'.
+pathinfo(
+    $after['name'],
+    PATHINFO_EXTENSION
+);
+
+
+$uploadDir = "../uploads/gallery/";
+
+if(!is_dir($uploadDir)){
+    mkdir($uploadDir, 0777, true);
+}
+
+move_uploaded_file(
+    $before['tmp_name'],
+    $uploadDir.$beforeName
+);
+
+
+
+move_uploaded_file(
+    $after['tmp_name'],
+    $uploadDir.$afterName
+);
+
+
+
+$stmt=$pdo->prepare(
+"
+INSERT INTO gallery
+(before_image,after_image)
+VALUES(?,?)
+"
+);
+
 
 
 $stmt->execute([
-
-$image,
-
-$title
-
+    $beforeName,
+    $afterName
 ]);
 
 
+
 }
 
 
-
-
-// حذف صورة
-
-
-if(isset($_GET['delete'])){
-
-
-$id=$_GET['delete'];
-
-
-
-$stmt=$conn->prepare(
-
-"SELECT image FROM gallery WHERE id=?"
-
-);
-
-
-$stmt->execute([$id]);
-
-
-$file=$stmt->fetch();
-
-
-
-unlink("../uploads/cases/".$file['image']);
-
-
-
-$stmt=$conn->prepare(
-
-"DELETE FROM gallery WHERE id=?"
-
-);
-
-
-$stmt->execute([$id]);
+}
 
 
 }
 
 
 
-
-$cases=$conn->query(
-
-"SELECT * FROM gallery ORDER BY id DESC"
-
+$images=$pdo->query(
+"
+SELECT * FROM gallery 
+ORDER BY id DESC
+"
 )->fetchAll();
 
 
@@ -119,68 +114,179 @@ $cases=$conn->query(
 
 
 
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="stylesheet" href="gallery.css">
+
+</head>
+
+
+
+<body>
+
+
+
+<?php include "includes/sidebar.php"; ?>
+
+
+
+<div class="main">
+
+
+
+<div class="gallery-container">
+
+
+
 <h2>
-إدارة الحالات
+Gallery Management
 </h2>
 
 
 
+
 <form method="POST"
-enctype="multipart/form-data">
+enctype="multipart/form-data"
+class="upload-box">
+
+
+
+<label>
+Before Image
+</label>
 
 
 <input 
-type="text"
-name="title"
-placeholder="عنوان الحالة">
-
-
-
-<input 
+id="beforeInput"
 type="file"
-name="image">
+name="before_image"
+accept="image/*"
+required>
 
 
 
-<button name="upload">
+<br><br>
 
-رفع الصورة
+
+
+<label>
+After Image
+</label>
+
+
+
+<input 
+id="afterInput"
+type="file"
+name="after_image"
+accept="image/*"
+required>
+
+
+
+
+<div class="preview">
+
+
+
+<img id="beforePreview"
+style="display:none;">
+
+
+
+<img id="afterPreview"
+style="display:none;">
+
+
+
+</div>
+
+
+
+<br>
+
+
+
+<button class="btn"
+name="upload">
+
+Upload Case
 
 </button>
 
 
+
 </form>
 
-<hr>
+
+
+
+
+
+<div class="gallery-grid">
+
+
+
+<?php foreach($images as $img): ?>
+
+
+<div class="image-card">
+
+
+
+<div style="display:flex;gap:10px;">
+
 
 
 <div>
 
-
-<?php foreach($cases as $case): ?>
-
-
-<div>
-
+<p>Before</p>
 
 <img 
-src="../uploads/cases/<?php echo $case['image']; ?>"
-width="200">
+src="../uploads/gallery/<?=htmlspecialchars($img['before_image'])?>">
+
+</div>
 
 
 
-<h4>
+<div>
 
-<?php echo $case['title']; ?>
+<p>After</p>
 
-</h4>
+<img 
+src="../uploads/gallery/<?=htmlspecialchars($img['after_image'])?>">
+
+</div>
 
 
-<a href="?delete=<?php echo $case['id']; ?>">
 
-حذف
+</div>
+
+
+
+
+<div class="image-footer">
+
+
+
+<a class="delete-btn"
+href="delete_image.php?id=<?=$img['id']?>"
+onclick="return confirm('Delete this case?')">
+
+Delete
 
 </a>
+
+
+
+</div>
+
 
 
 </div>
@@ -190,4 +296,88 @@ width="200">
 <?php endforeach; ?>
 
 
+
 </div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const beforeInput =
+document.getElementById('beforeInput');
+
+
+const afterInput =
+document.getElementById('afterInput');
+
+
+
+const beforePreview =
+document.getElementById('beforePreview');
+
+
+const afterPreview =
+document.getElementById('afterPreview');
+
+
+
+
+beforeInput.onchange=function(){
+
+
+let file=this.files[0];
+
+
+if(file){
+
+beforePreview.src=
+URL.createObjectURL(file);
+
+beforePreview.style.display="block";
+
+}
+
+
+}
+
+
+
+
+afterInput.onchange=function(){
+
+
+let file=this.files[0];
+
+
+if(file){
+
+afterPreview.src=
+URL.createObjectURL(file);
+
+afterPreview.style.display="block";
+
+}
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

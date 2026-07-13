@@ -1,42 +1,38 @@
 <?php
 
+require "includes/language.php";
+
 require "config/database.php";
 
 
-$stmt=$conn->prepare(
-
-"SELECT * FROM reviews ORDER BY id DESC"
-
-);
-
-
-$stmt->execute();
-
-
-$reviews=$stmt->fetchAll();
+$reviews=$pdo->query(
+"
+SELECT * FROM reviews
+WHERE status='approved'
+ORDER BY id DESC
+LIMIT 6
+"
+)->fetchAll();
 
 
 ?>
 
 
-
 <!DOCTYPE html>
 
-<html lang="ar" dir="rtl">
+<html lang="<?=t('lang_code')?>"
+dir="<?=t('dir')?>">
 
 
 <head>
 
 
-<meta charset="UTF-8">
-
-<title>
-تقييمات المرضى
-</title>
+<link rel="stylesheet"
+href="assets/css/style.css">
 
 
 <link rel="stylesheet"
-href="assets/css/style.css">
+href="assets/css/reviews.css">
 
 
 </head>
@@ -46,39 +42,62 @@ href="assets/css/style.css">
 <body>
 
 
-
-<section class="section">
-
-
-<div class="container">
+<?php include "includes/navbar.php"; ?>
 
 
-<h2>
 
-آراء المرضى
+<section class="reviews-section">
 
-</h2>
+
+<h1>
+<?=t('reviews_title')?>
+</h1>
 
 
 
 
-<div class="row g-4">
+<div class="reviews-grid">
 
 
 
 <?php foreach($reviews as $review): ?>
 
 
-
-<div class="col-lg-4">
-
-
-<a href="<?php echo $review['google_link']; ?>"
-target="_blank">
+<a 
+href="https://maps.app.goo.gl/cv6Pss4AknpRn5Q3A"
+target="_blank"
+class="review-card">
 
 
-<div class="review-card">
 
+<div class="review-header">
+
+
+
+<div class="avatar">
+
+
+<?php if($review['avatar']): ?>
+
+<img src="uploads/reviews/<?= $review['avatar'] ?>">
+
+<?php else: ?>
+
+<?=mb_substr($review['name'],0,1)?>
+
+<?php endif; ?>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+<?=htmlspecialchars($review['name'])?>
+</h3>
 
 
 <div class="stars">
@@ -86,74 +105,65 @@ target="_blank">
 
 <?php
 
-echo str_repeat(
-"★",
-$review['rating']
-);
+for($i=1;$i<=5;$i++){
+
+echo $i <= $review['rating']
+?
+"★"
+:
+"☆";
+
+}
 
 ?>
 
 </div>
 
 
+</div>
 
-<h5>
 
-<?php echo $review['name']; ?>
-
-</h5>
+</div>
 
 
 
 <p>
 
-<?php echo $review['comment']; ?>
+<?=htmlspecialchars($review['review'])?>
 
 </p>
 
 
-</div>
-
 
 </a>
-
-
-</div>
 
 
 
 <?php endforeach; ?>
 
 
-
 </div>
 
 
 
-<div class="text-center mt-5">
+<a 
+href="https://maps.app.goo.gl/cv6Pss4AknpRn5Q3A"
+target="_blank"
+class="google-btn">
 
-
-<a href="ضع رابط Google Maps هنا"
-
-class="appointment-btn">
-
-عرض جميع التقييمات على جوجل
+<?=t('google_reviews')?>
 
 </a>
 
-
-</div>
-
-
-
-</div>
 
 
 </section>
 
 
 
-</body>
+<?php include "includes/footer.php"; ?>
 
+
+</body>
 
 </html>

@@ -1,185 +1,198 @@
 <?php
 
+require "auth.php";
+
 require "../config/database.php";
 
 
-// إضافة
-
-
-if(isset($_POST['add'])){
-
-
-$stmt=$conn->prepare(
-
-"INSERT INTO reviews
-(name,rating,comment,google_link)
-VALUES(?,?,?,?)"
-
-);
-
-
-$stmt->execute([
-
-$_POST['name'],
-
-$_POST['rating'],
-
-$_POST['comment'],
-
-$_POST['link']
-
-]);
-
-
-}
-
-
-
-
-// حذف
-
-
-if(isset($_GET['delete'])){
-
-
-$stmt=$conn->prepare(
-
-"DELETE FROM reviews WHERE id=?"
-
-);
-
-
-$stmt->execute([
-
-$_GET['delete']
-
-]);
-
-
-}
-
-
-
-$reviews=$conn->query(
-
-"SELECT * FROM reviews ORDER BY id DESC"
-
+$reviews = $pdo->query(
+"
+SELECT * FROM reviews
+ORDER BY id DESC
+"
 )->fetchAll();
 
 
 ?>
 
 
+<!DOCTYPE html>
 
-<?php include "layout/sidebar.php"; ?>
+<html>
 
+<head>
 
-<div class="content">
+<link rel="stylesheet" href="admin.css">
 
-
-<h1>
-إدارة التقييمات
-</h1>
-
+</head>
 
 
-<div class="table-box">
+<body>
 
 
-<form method="POST">
+<?php include "includes/sidebar.php"; ?>
 
 
-<input name="name"
-placeholder="اسم العميل">
+<div class="main">
 
 
-
-<input name="rating"
-value="5"
-type="number">
+<div class="topbar">
 
 
-<textarea name="comment"
-placeholder="التعليق"></textarea>
+<h2>
+Reviews Management
+</h2>
 
 
-<input name="link"
-placeholder="Google Link">
+<a href="add_review.php" class="btn">
++ Add Review
+</a>
 
 
-<button name="add">
-
-إضافة
-
-</button>
-
-
-</form>
+</div>
 
 
 
-<hr>
+<div class="card">
 
 
 
-<table class="table">
+<table class="admin-table">
 
+
+<thead>
 
 <tr>
 
 <th>
-الاسم
+Name
 </th>
 
-<th>
-التقييم
-</th>
 
 <th>
-التعليق
+Rating
 </th>
 
+
 <th>
-حذف
+Review
 </th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Actions
+</th>
+
 
 </tr>
 
+</thead>
 
 
-<?php foreach($reviews as $r): ?>
+
+<tbody>
+
+
+<?php foreach($reviews as $review): ?>
 
 
 <tr>
 
-<td>
-<?= $r['name'];?>
-</td>
-
 
 <td>
 
-<?= $r['rating'];?>
-
-⭐
+<?=htmlspecialchars($review['name'])?>
 
 </td>
 
 
+
 <td>
 
-<?= $r['comment'];?>
+<?php
+
+for($i=1;$i<=5;$i++){
+
+echo $i <= $review['rating']
+?
+"★"
+:
+"☆";
+
+}
+
+?>
 
 </td>
 
 
+
+
 <td>
 
-<a href="?delete=<?=$r['id']?>">
+<?=htmlspecialchars(
+mb_substr($review['review'],0,50)
+)?>
 
-حذف
+...
+
+</td>
+
+
+
+
+<td>
+
+
+<?php if($review['status']=="approved"): ?>
+
+
+<span class="active">
+Visible
+</span>
+
+
+<?php else: ?>
+
+
+<span class="hidden">
+Hidden
+</span>
+
+
+<?php endif; ?>
+
+
+</td>
+
+
+
+
+<td>
+
+
+<a class="btn"
+href="toggle_review.php?id=<?=$review['id']?>">
+
+Toggle
 
 </a>
+
+
+
+<a class="delete-btn"
+href="delete_review.php?id=<?=$review['id']?>"
+onclick="return confirm('Delete review?')">
+
+Delete
+
+</a>
+
 
 </td>
 
@@ -190,6 +203,9 @@ placeholder="Google Link">
 <?php endforeach; ?>
 
 
+</tbody>
+
+
 </table>
 
 
@@ -197,3 +213,8 @@ placeholder="Google Link">
 
 
 </div>
+
+
+</body>
+
+</html>

@@ -1,103 +1,114 @@
 <?php
 
+require "auth.php";
 require "../config/database.php";
 
 
-$cases=$conn->query(
+
+$gallery =
+$pdo->query(
 "SELECT COUNT(*) FROM gallery"
 )->fetchColumn();
 
 
-$reviews=$conn->query(
-"SELECT COUNT(*) FROM reviews"
+
+$messages =
+$pdo->query(
+"SELECT COUNT(*) FROM messages"
 )->fetchColumn();
 
 
-$appointments=$conn->query(
-"SELECT COUNT(*) FROM appointments"
+
+$reviews =
+$pdo->query(
+"SELECT COUNT(*) FROM reviews"
 )->fetchColumn();
 
 
 ?>
 
 
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
 <link rel="stylesheet" href="admin.css">
 
+</head>
 
-<?php include "layout/sidebar.php"; ?>
+
+<body>
 
 
-<div class="content">
+<?php include "includes/sidebar.php"; ?>
 
+
+<div class="main">
+
+
+<div class="topbar">
+
+<h2>
+Welcome <?= $_SESSION['admin_username']; ?>
+</h2>
+
+
+</div>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Gallery
+</h3>
 
 <h1>
-لوحة التحكم
+<?= $gallery ?>
 </h1>
 
-
-
-<div class="row mt-5 g-4">
-
-
-
-<div class="col-md-4">
-
-<div class="stat-card">
-
-<h2>
-<?php echo $cases;?>
-</h2>
-
-<p>
-عدد الحالات
-</p>
-
 </div>
+
+
+
+<div class="card">
+
+<h3>
+Messages
+</h3>
+
+<h1>
+<?= $messages ?>
+</h1>
 
 </div>
 
 
 
+<div class="card">
 
-<div class="col-md-4">
+<h3>
+Reviews
+</h3>
 
-<div class="stat-card">
-
-<h2>
-<?php echo $reviews;?>
-</h2>
-
-<p>
-التقييمات
-</p>
+<h1>
+<?= $reviews ?>
+</h1>
 
 </div>
-
-</div>
-
-
-
-
-
-<div class="col-md-4">
-
-<div class="stat-card">
-
-<h2>
-<?php echo $appointments;?>
-</h2>
-
-<p>
-الحجوزات
-</p>
-
-</div>
-
-</div>
-
 
 
 </div>
 
 
 </div>
+
+
+</body>
+
+</html>

@@ -1,93 +1,247 @@
-const casesSwiper = new Swiper(".cases-coverflow", {
+
+document.querySelectorAll('.slider')
+.forEach(slider=>{
 
 
-effect:"coverflow",
+slider.addEventListener(
+'input',
+function(){
 
 
-grabCursor:true,
+let value=this.value;
 
 
-centeredSlides:true,
+let parent=this.parentElement;
 
 
-slidesPerView:"auto",
-
-
-loop:true,
-
-
-autoplay:{
-
-
-delay:2500,
-
-
-disableOnInteraction:false
-
-
-},
+parent.querySelector(
+'.after-container'
+)
+.style.width=value+"%";
 
 
 
-coverflowEffect:{
-
-
-rotate:0,
-
-
-stretch:0,
-
-
-depth:200,
-
-
-modifier:2,
-
-
-slideShadows:false
-
-
-},
+parent.querySelector(
+'.slider-line'
+)
+.style.left=value+"%";
 
 
 
-navigation:{
+});
 
 
-nextEl:".swiper-button-next",
-
-prevEl:".swiper-button-prev"
-
-
-},
+});
 
 
 
-breakpoints:{
+
+const galleryImages = [
+
+"1.jpeg",
+"2.jpeg",
+"3.jpeg",
+"4.jpeg",
+"5.jpeg",
+"6.jpeg",
+"7.jpeg",
+"8.jpeg",
+"9.jpeg"
+
+];
 
 
-320:{
-
-slidesPerView:1.5
-
-},
+let current = 4;
 
 
-768:{
 
-slidesPerView:3
-
-},
+function updateCases(){
 
 
-1200:{
+const total = galleryImages.length;
 
-slidesPerView:5
+
+
+let center =
+current;
+
+
+
+let left1 =
+(center-2+total)%total;
+
+
+let left2 =
+(center-1+total)%total;
+
+
+
+let right1 =
+(center+1)%total;
+
+
+let right2 =
+(center+2)%total;
+
+
+
+
+// Center image
+
+document
+.getElementById("mainCaseImage")
+.src =
+"assets/images/gallery/"
++
+galleryImages[center];
+
+
+
+
+// Left images
+
+let left =
+document.querySelectorAll(
+"#leftImages img"
+);
+
+
+
+left[0].src =
+"assets/images/gallery/"
++
+galleryImages[left1];
+
+
+left[1].src =
+"assets/images/gallery/"
++
+galleryImages[left2];
+
+
+
+
+
+// Right images
+
+
+let right =
+document.querySelectorAll(
+"#rightImages img"
+);
+
+
+
+right[0].src =
+"assets/images/gallery/"
++
+galleryImages[right1];
+
+
+right[1].src =
+"assets/images/gallery/"
++
+galleryImages[right2];
+
+
 
 }
 
 
+
+
+
+function nextCase(){
+
+
+current++;
+
+
+if(current >= galleryImages.length){
+
+current=0;
+
 }
+
+
+updateCases();
+
+
+}
+
+
+
+updateCases();
+
+
+
+let autoPlay =
+setInterval(
+nextCase,
+3000
+);
+
+
+
+
+document
+.querySelector(".next-case")
+.addEventListener(
+"click",
+()=>{
+
+
+clearInterval(autoPlay);
+
+
+nextCase();
+
+
+
+autoPlay =
+setInterval(
+nextCase,
+3000
+);
+
+
+});
+
+
+
+
+
+document
+.querySelector(".prev-case")
+.addEventListener(
+"click",
+()=>{
+
+
+clearInterval(autoPlay);
+
+
+current--;
+
+
+if(current < 0){
+
+current =
+galleryImages.length-1;
+
+}
+
+
+
+updateCases();
+
+
+
+autoPlay =
+setInterval(
+nextCase,
+3000
+);
 
 
 });
