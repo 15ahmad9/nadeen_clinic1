@@ -1,15 +1,68 @@
 <?php
 require "config/database.php";
+
+require "config/language.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html 
+
+lang="<?= $langCode ?>"
+
+dir="<?= $langCode=='ar'?'rtl':'ltr' ?>"
+
+>
 
 <head>
 
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+
+content="عيادة د. نادين عطاري لتقويم الأسنان وطب الأسنان في عمان الأردن. خدمات تقويم الأسنان، التجميل، الزراعة، والفينيير.">
+
+
+<meta name="keywords"
+
+content="تقويم اسنان عمان, د نادين عطاري, طبيبة اسنان عمان, orthodontist jordan">
+
+
+<meta name="author"
+
+content="Dr Nadine Attari">
+
+
+<meta name="robots"
+
+content="index, follow">
+
+<!-- 444444444444444444444444444444444444 -->
+<link rel="canonical"
+href="https://.com">
+<!-- 444444444444444444444444444444
+  -->
+
+  <meta property="og:title"
+
+content="عيادة د. نادين عطاري">
+
+
+<meta property="og:description"
+
+content="تقويم الأسنان وطب الأسنان في عمان الأردن">
+
+
+<meta property="og:image"
+
+content="assets/images/logo.png">
+
+
+<meta property="og:type"
+
+content="website">
+
 
 <title>
 عيادة د. نادين عطاري | تقويم الأسنان وطب الأسنان
@@ -48,7 +101,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <a class="navbar-brand" href="index.php">
 
-<img src="assets/images/nadeen_log.jpeg">
+<img src="assets/images/logo.png">
 
 </a>
 
@@ -126,6 +179,23 @@ class="appointment-btn">
 
 </a>
 
+
+<div class="language-switch">
+
+
+<a href="?lang=ar">
+AR
+</a>
+
+
+|
+
+<a href="?lang=en">
+EN
+</a>
+
+
+</div>
 
 
 </div>
@@ -762,6 +832,36 @@ class="floating-whatsapp">
 <img src="assets/images/icons/whatsapp.svg">
 
 </a>
+
+<script type="application/ld+json">
+
+{
+
+"@context":"https://schema.org",
+
+"@type":"Dentist",
+
+"name":"Dr. Nadine Attari Dental Clinic",
+
+"address":{
+
+"addressLocality":"Amman",
+
+"addressCountry":"Jordan"
+
+},
+
+
+"telephone":"0796900000",
+
+"openingHours":
+
+"Sa-Th 10:00-20:00"
+
+
+}
+
+</script>
 </body>
 
 </html>
