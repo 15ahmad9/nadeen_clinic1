@@ -88,7 +88,7 @@ $translations = [
 'درجة الماجستير في تقويم الأسنان والفكين من الجامعة الأردنية',
 
 'certificate_2'=>
-'البورد الأردني في تقويم الأسنان',
+'البورد الأردني في تقويم الأسنان والفكين',
 
 'certificate_3'=>
 'درجة دكتور في طب وجراحة الأسنان من الجامعة الأردنية',
@@ -99,10 +99,6 @@ $translations = [
 'certificate_5'=>
 'تجميل الوجه غير الجراحي',
 
-
-/* Services */
-
-'services_title'=>'خدمات العيادة',
 
 'orthodontics'=>'تقويم الأسنان',
 
@@ -131,6 +127,50 @@ $translations = [
 'facial_aesthetics'=>'تجميل الوجه غير الجراحي',
 
 
+/* Services */
+
+'services_title'=>'خدمات العيادة',
+
+'services_description'=>'نقدم مجموعة متكاملة من خدمات طب الأسنان وتقويم الأسنان بأحدث التقنيات وبأعلى معايير الجودة.',
+
+
+'orthodontics_desc'=>'تقويم الأسنان للأطفال والبالغين بهدف تحسين ترتيب الأسنان، تصحيح الإطباق، وتحسين تناسق الابتسامة.',
+
+
+'metal_braces_desc'=>'من أكثر أنواع التقويم استخداماً، ويعتمد على حاصرات معدنية تثبت على الأسنان لتحريكها تدريجياً إلى الوضع الصحيح.',
+
+
+'clear_aligners_desc'=>'تقويم شفاف يعتمد على قوالب شفافة مصممة خصيصاً لتحريك الأسنان تدريجياً مع الحفاظ على مظهر طبيعي أثناء العلاج.',
+
+
+'functional_appliances_desc'=>'يستخدم أثناء مراحل النمو عند الأطفال واليافعين للمساعدة في توجيه نمو الفكين وتحسين العلاقة بينهما.',
+
+
+'retainers_desc'=>'تستخدم بعد إزالة التقويم للحفاظ على ترتيب الأسنان، وقد تكون ثابتة أو متحركة حسب حاجة المريض.',
+
+
+'cleaning_desc'=>'تنظيف الأسنان الدوري يساعد على إزالة الترسبات والجير، الحفاظ على صحة اللثة، وتقليل مشاكل الأسنان واللثة.',
+
+
+'whitening_desc'=>'تبييض الأسنان لتحسين لون الأسنان ومنح الابتسامة مظهراً أكثر إشراقاً حسب حالة الأسنان ودرجة التصبغات.',
+
+
+'veneers_desc'=>'قشور تجميلية رقيقة تستخدم لتحسين شكل الأسنان ولونها وحجمها وإغلاق الفراغات البسيطة للحصول على ابتسامة متناسقة.',
+
+
+'crowns_desc'=>'تركيبات الأسنان مثل التيجان والجسور تساعد على تعويض الأسنان المتضررة أو المفقودة وتحسين الشكل والوظيفة.',
+
+
+'implants_desc'=>'حل ثابت لتعويض الأسنان المفقودة من خلال وضع زرعة داخل العظم ثم تركيب السن فوقها لاستعادة الشكل والوظيفة.',
+
+
+'fillings_desc'=>'حشوات تجميلية لعلاج التسوس أو ترميم الأسنان المتضررة مع الحفاظ على مظهر قريب من لون الأسنان الطبيعي.',
+
+
+'pediatric_desc'=>'عناية لطيفة ومريحة بأسنان الأطفال تشمل الفحص الدوري، التنظيف، علاج التسوس، والمتابعة الوقائية.',
+
+
+'facial_aesthetics_desc'=>'خدمات تجميل الوجه غير الجراحي لتحسين تناسق ملامح الوجه بطريقة طبيعية وآمنة بما ينسجم مع الابتسامة.',
 /* Location */
 
 'location_title'=>'موقع العيادة',
@@ -145,6 +185,9 @@ $translations = [
 
 'working_time'=>'السبت إلى الخميس من 10:00 صباحاً إلى 8:00 مساءً',
 
+
+'clinic_address'=>'شارع حنين بن إسحاق، عمّان',
+'working_time'=>'السبت إلى الخميس من 10:00 صباحاً إلى 8:00 مساءً',
 
 /* Footer */
 
@@ -161,6 +204,19 @@ $translations = [
 
 'write_review'=>'شاركنا تجربتك',
 
+'footer_description'=>'عيادة متخصصة في تقويم الأسنان وطب الأسنان نقدم رعاية متكاملة بابتسامة صحية وثقة.',
+
+'footer_links'=>'روابط الصفحات',
+
+'follow_us'=>'تابعنا على مواقع التواصل الاجتماعي',
+
+'powered_by'=>'Powered by',
+
+'clinic_owner'=>'الدكتورة نادين عطاري',
+
+'cases'=>'الحالات',
+
+'reviews'=>'التقييمات',
 
 'language'=>'English'
 
@@ -242,7 +298,7 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 'Master’s Degree in Orthodontics and Dentofacial Orthopedics from the University of Jordan',
 
 'certificate_2'=>
-'Jordanian Board in Orthodontics',
+'Jordanian Board in Orthodontics and Dentofacial Orthopedics',
 
 'certificate_3'=>
 'Doctor of Dental Surgery Degree from the University of Jordan',
@@ -254,9 +310,7 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 'Certified in Non-Surgical Facial Aesthetics',
 
 
-/* Services */
 
-'services_title'=>'Clinic Services',
 
 'orthodontics'=>'Orthodontics',
 
@@ -284,6 +338,53 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 
 'facial_aesthetics'=>'Non-Surgical Facial Aesthetics',
 
+
+
+/* Services */
+
+'services_title'=>'Clinic Services',
+
+'services_description'=>'We provide comprehensive dental and orthodontic services using modern techniques and high-quality care.',
+
+
+'orthodontics_desc'=>'Orthodontic treatment for children and adults helps improve teeth alignment, correct bite problems, and create a balanced smile.',
+
+
+'metal_braces_desc'=>'One of the most commonly used orthodontic treatments, using metal brackets to gradually move teeth into the correct position.',
+
+
+'clear_aligners_desc'=>'A discreet treatment using custom-made clear trays to gradually move teeth while maintaining a natural appearance.',
+
+
+'functional_appliances_desc'=>'Used during growth stages in children and teenagers to guide jaw development and improve jaw relationship.',
+
+
+'retainers_desc'=>'Used after orthodontic treatment to maintain the new position of teeth and prevent relapse.',
+
+
+'cleaning_desc'=>'Professional dental cleaning removes plaque and tartar, maintains gum health, and prevents dental problems.',
+
+
+'whitening_desc'=>'Teeth whitening improves tooth color and provides a brighter smile based on tooth condition and staining level.',
+
+
+'veneers_desc'=>'Thin cosmetic shells used to improve tooth shape, color, size, and minor gaps for a natural smile.',
+
+
+'crowns_desc'=>'Dental crowns and bridges restore damaged or missing teeth and improve appearance and function.',
+
+
+'implants_desc'=>'A fixed solution for replacing missing teeth by placing an implant inside the bone and restoring the tooth later.',
+
+
+'fillings_desc'=>'Cosmetic fillings treat cavities and restore damaged teeth while maintaining a natural tooth-colored appearance.',
+
+
+'pediatric_desc'=>'Gentle dental care for children including check-ups, cleaning, cavity treatment, and preventive follow-up.',
+
+
+'facial_aesthetics_desc'=>'Non-surgical facial aesthetics services that enhance facial harmony naturally and safely.',
+
 /* Location */
 
 'location_title'=>'Clinic Location',
@@ -298,6 +399,8 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 
 'working_time'=>'Saturday to Thursday from 10:00 AM to 8:00 PM',
 
+'clinic_address'=>'Hunayn Bin Ishak St, Amman',
+'working_time'=>'Saturday to Thursday from 10:00 AM to 8:00 PM',
 
 /* Footer */
 
@@ -312,6 +415,20 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 'google_reviews'=>'View All Reviews on Google',
 
 'write_review'=>'Share Your Experience',
+
+'footer_description'=>'A specialized orthodontic and dental clinic providing comprehensive dental care with healthy confident smiles.',
+
+'footer_links'=>'Quick Links',
+
+'follow_us'=>'Follow Us',
+
+'powered_by'=>'Powered by',
+
+'clinic_owner'=>'Dr. Nadeen Attari',
+
+'cases'=>'Cases',
+
+'reviews'=>'Reviews',
 
 'language'=>'العربية'
 

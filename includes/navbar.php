@@ -13,16 +13,23 @@
 
 
 
-<div class="nav-links">
+<!-- Mobile Button -->
+
+<div class="menu-toggle" onclick="toggleMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+
+<div class="nav-links" id="navLinks">
 
 
 <a href="index.php">
 <?=t('home')?>
-</a>
-
-
-<a href="booking.php">
-<?=t('booking')?>
 </a>
 
 
@@ -36,13 +43,13 @@
 </a>
 
 
-<a href="certificates.php">
-<?=t('certificates')?>
+<a href="#location-section">
+<?=t('location')?>
 </a>
 
 
-<a href="location.php">
-<?=t('location')?>
+<a href="#contact">
+<?=t('contact')?>
 </a>
 
 
@@ -62,7 +69,6 @@
 
 
 </div>
-
 
 
 </nav>
