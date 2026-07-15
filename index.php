@@ -14,10 +14,86 @@ dir="<?=t('dir')?>">
 
 <link rel="stylesheet" href="assets/css/style.css">
 
+<link rel="icon"
+href="assets/images/logo.png">
+
 <link rel="stylesheet" 
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+
+content="عيادة د. نادين عطاري لتقويم الأسنان وطب الأسنان في عمان الأردن. خدمات تقويم الأسنان، التجميل، الزراعة، والفينيير.">
+
+<meta name="keywords"
+
+content="تقويم اسنان عمان, د نادين عطاري, طبيبة اسنان عمان, orthodontist jordan">
+
+
+<meta name="author"
+
+content="Dr Nadine Attari">
+
+<meta name="developer"
+
+content="Ahmad Ghanem">
+
+<meta name="robots"
+
+
+
+content="index, follow">
+
+
+
+<!-- 444444444444444444444444444444444444 -->
+
+<link rel="canonical"
+
+href="https://.com">
+
+<!-- 444444444444444444444444444444
+
+  -->
+
+  <meta property="og:title"
+
+content="عيادة د. نادين عطاري">
+
+
+<meta property="og:description"
+
+content="تقويم الأسنان وطب الأسنان في عمان الأردن">
+
+<meta property="og:image"
+
+content="assets/images/logo.png">
+
+
+<meta property="og:type"
+
+content="website">
+
+<!-- Open Graph Facebook -->
+
+<meta property="og:title"
+
+content="Dr. Nadeen Attari Orthodontic and Dental Clinic">
+
+<meta property="og:description"
+
+content="Orthodontic and dental care clinic in Amman Jordan">
+
+<meta property="og:type"
+
+content="website">
+
+
 
 </head>
 
@@ -116,7 +192,7 @@ target="_blank">
 
 
 <img src="assets/images/doctor_hero.png"
-alt="Dr Nadeen">
+alt="Dr Nadeen Attari Orthodontist in Amman Jordan">
 
 
 </div>
@@ -240,7 +316,7 @@ alt="Dr. Nadeen Attari">
 </section>
 
 
-<section class="services-section">
+<section class="services-section" id="services-section">
 
 
 <div class="section-title">
@@ -351,8 +427,8 @@ foreach($services as $service):
 <div class="gallery-side-images" id="leftImages">
 
 
-<img>
-<img>
+<img loading="Orthodontist">
+<img loading="Orthodontist">
 
 
 </div>
@@ -381,7 +457,7 @@ foreach($services as $service):
 <div class="gallery-side-images" id="rightImages">
 
 
-<img>
+<img loading="Orthodontist">
 <img>
 
 

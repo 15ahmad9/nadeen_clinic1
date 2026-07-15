@@ -31,7 +31,7 @@ background:var(--background);
 
 
 height:85px;
-
+width:100%;
 background:#12394d;
 
 display:flex;
@@ -43,10 +43,10 @@ justify-content:space-between;
 padding:0 60px;
 
 
-position:sticky;
+position:fixed;
 
 top:0;
-
+left:0;
 z-index:9999;
 
 
@@ -369,7 +369,7 @@ position:relative;
 
 
 .hero-overlay{
-
+padding-top: 80px;
 
 position:absolute;
 
@@ -497,7 +497,7 @@ text-align:right;
 .hero-content h1{
 
 
-font-size:48px;
+font-size:42px;
 
 color:var(--dark);
 
@@ -922,7 +922,7 @@ color:var(--dark);
 
 .gallery-section{
 
-padding:50px 0;
+padding:25px 0;
 
 background:#F8FAFC;
 
@@ -3054,7 +3054,7 @@ img{
 .hero{
  position:relative;
  overflow:hidden;
- min-height:calc(100vh - 85px);
+    min-height: calc(120vh - 140px);
 }
 
 .hero-container{
@@ -3090,7 +3090,7 @@ img{
 
 .doctor-frame{
  margin:auto;
- max-width:450px;
+ max-width:370px;
 }
 
 .about-container{
@@ -3138,11 +3138,12 @@ img{
 }
 
 .nav-language{
- margin-left:auto;
+ margin-right:auto;
+ margin-left: 15px;
 }
 
 .hero{
- padding:1300px 0 10px;
+ padding:1235px 0 115px;
 }
 
 .hero-container{
@@ -3347,3 +3348,143 @@ img{
 }
 
 
+/* ==========================
+ MOBILE NAV ACTIONS
+========================== */
+
+
+.mobile-actions{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+
+
+/* Language Button */
+
+.nav-language a{
+
+
+color:white;
+
+border:1px solid var(--primary);
+
+padding:8px 15px;
+
+border-radius:25px;
+
+font-size:14px;
+
+font-weight:bold;
+
+text-decoration:none;
+
+}
+
+
+
+.nav-language a:hover{
+
+background:var(--primary);
+
+}
+
+
+
+
+
+/* Hamburger */
+
+
+.menu-toggle{
+
+cursor:pointer;
+
+}
+
+
+
+.menu-toggle span{
+
+display:block;
+
+width:28px;
+
+height:3px;
+
+background:white;
+
+margin:5px 0;
+
+border-radius:10px;
+
+}
+
+
+
+
+/* Desktop */
+
+@media(min-width:901px){
+
+
+.mobile-actions{
+
+display:none;
+
+}
+
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:900px){
+
+
+.navbar{
+
+padding:0 15px;
+
+}
+
+
+
+.nav-language{
+
+display:block;
+
+}
+
+
+
+.mobile-actions{
+
+display:flex;
+
+}
+
+
+
+.nav-links{
+
+display:none;
+
+}
+
+
+.nav-links.active{
+
+display:flex;
+
+}
+
+
+}

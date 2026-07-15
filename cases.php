@@ -24,6 +24,8 @@ dir="<?=t('dir')?>">
 
 
 <head>
+<link rel="icon"
+href="assets/images/logo.png">
 
 <meta charset="UTF-8">
 

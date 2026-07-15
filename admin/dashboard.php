@@ -33,7 +33,8 @@ $pdo->query(
 
 
 <head>
-
+<link rel="icon"
+href="../assets/images/logo.png">
 <link rel="stylesheet" href="admin.css">
 
 </head>
@@ -41,7 +42,7 @@ $pdo->query(
 
 <body>
 
-
+<?php include "includes/header.php"; ?>
 <?php include "includes/sidebar.php"; ?>
 
 

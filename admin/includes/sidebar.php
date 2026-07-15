@@ -1,34 +1,80 @@
-<div class="sidebar">
+<?php
+
+require_once "../includes/language.php";
+
+?>
+<aside class="sidebar">
 
 
-<h2>
-Nadine Clinic
-</h2>
+<div class="sidebar-logo">
 
+<img src="../assets/images/logo.png">
+
+<h3>
+<?=t('admin_panel')?>
+</h3>
+
+</div>
+
+
+
+<nav>
+
+<a href="../index.php">
+<?=t('home')?>
+</a>
 
 <a href="dashboard.php">
-Dashboard
+
+<?=t('dashboard')?>
+
 </a>
+
 
 
 <a href="gallery.php">
-Gallery
+
+<?=t('gallery')?>
+
 </a>
 
-
-<a href="messages.php">
-Messages
-</a>
 
 
 <a href="reviews.php">
-Reviews
+
+<?=t('reviews')?>
+
 </a>
 
 
-<a href="logout.php">
-Logout
+
+<a href="messages.php">
+
+<?=t('messages')?>
+
+</a>
+
+
+
+</nav>
+
+
+
+<div class="sidebar-bottom">
+
+
+
+
+<a class="logout-btn"
+href="logout.php">
+
+<?=t('logout')?>
+
 </a>
 
 
 </div>
+
+
+
+</aside>

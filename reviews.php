@@ -26,6 +26,8 @@ dir="<?=t('dir')?>">
 
 <head>
 
+<link rel="icon"
+href="assets/images/logo.png">
 
 <link rel="stylesheet"
 href="assets/css/style.css">

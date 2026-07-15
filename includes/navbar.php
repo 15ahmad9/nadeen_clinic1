@@ -13,6 +13,19 @@
 
 
 
+
+<div class="nav-language">
+
+
+<a href="<?=switch_lang_url($lang=='ar'?'en':'ar')?>">
+
+<?=t('language')?>
+
+</a>
+
+
+</div>
+
 <!-- Mobile Button -->
 
 <div class="menu-toggle" onclick="toggleMenu()">
@@ -48,7 +61,7 @@
 </a>
 
 
-<a href="#contact">
+<a href="#location-section">
 <?=t('contact')?>
 </a>
 
@@ -56,19 +69,6 @@
 </div>
 
 
-
-
-<div class="nav-language">
-
-
-<a href="<?=switch_lang_url($lang=='ar'?'en':'ar')?>">
-
-<?=t('language')?>
-
-</a>
-
-
-</div>
 
 
 </nav>

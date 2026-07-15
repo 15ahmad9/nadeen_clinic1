@@ -2,9 +2,18 @@
 
 session_start();
 
+
+// حذف جميع بيانات الجلسة
+session_unset();
+
+
+// تدمير الجلسة
 session_destroy();
 
 
-header("Location:login.php");
+// إعادة التوجيه إلى صفحة تسجيل الدخول
+header("Location: login.php");
+
+exit;
 
 ?>

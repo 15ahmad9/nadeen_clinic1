@@ -119,7 +119,8 @@ ORDER BY id DESC
 <html>
 
 <head>
-
+<link rel="icon"
+href="../assets/images/logo.png">
 <link rel="stylesheet" href="admin.css">
 
 <link rel="stylesheet" href="gallery.css">
@@ -131,7 +132,7 @@ ORDER BY id DESC
 <body>
 
 
-
+<?php include "includes/header.php"; ?>
 <?php include "includes/sidebar.php"; ?>
 
 

@@ -140,7 +140,7 @@ $translations = [
 'metal_braces_desc'=>'من أكثر أنواع التقويم استخداماً، ويعتمد على حاصرات معدنية تثبت على الأسنان لتحريكها تدريجياً إلى الوضع الصحيح.',
 
 
-'clear_aligners_desc'=>'تقويم شفاف يعتمد على قوالب شفافة مصممة خصيصاً لتحريك الأسنان تدريجياً مع الحفاظ على مظهر طبيعي أثناء العلاج.',
+'clear_aligners_desc'=>'تقويم شفاف يعتمد على قوالب شفافة مصممة خصيصاً لتحريك الأسنان تدريجياً مع الحفاظ على مظهر طبيعي أثناء فترة العلاج.',
 
 
 'functional_appliances_desc'=>'يستخدم أثناء مراحل النمو عند الأطفال واليافعين للمساعدة في توجيه نمو الفكين وتحسين العلاقة بينهما.',
@@ -149,28 +149,29 @@ $translations = [
 'retainers_desc'=>'تستخدم بعد إزالة التقويم للحفاظ على ترتيب الأسنان، وقد تكون ثابتة أو متحركة حسب حاجة المريض.',
 
 
-'cleaning_desc'=>'تنظيف الأسنان الدوري يساعد على إزالة الترسبات والجير، الحفاظ على صحة اللثة، وتقليل مشاكل الأسنان واللثة.',
+'cleaning_desc'=>'يساعد تنظيف الأسنان الدوري على إزالة الترسبات والجير، الحفاظ على صحة اللثة، تقليل رائحة الفم، والوقاية من مشاكل
+الأسنان واللثة.',
 
 
 'whitening_desc'=>'تبييض الأسنان لتحسين لون الأسنان ومنح الابتسامة مظهراً أكثر إشراقاً حسب حالة الأسنان ودرجة التصبغات.',
 
 
-'veneers_desc'=>'قشور تجميلية رقيقة تستخدم لتحسين شكل الأسنان ولونها وحجمها وإغلاق الفراغات البسيطة للحصول على ابتسامة متناسقة.',
+'veneers_desc'=>'قشور تجميلية رقيقة تستخدم لتحسين شكل الأسنان ولونها وحجمها وإغلاق الفراغات البسيطة للحصول على ابتسامة متناسقة وطبيعية.',
 
 
 'crowns_desc'=>'تركيبات الأسنان مثل التيجان والجسور تساعد على تعويض الأسنان المتضررة أو المفقودة وتحسين الشكل والوظيفة.',
 
 
-'implants_desc'=>'حل ثابت لتعويض الأسنان المفقودة من خلال وضع زرعة داخل العظم ثم تركيب السن فوقها لاستعادة الشكل والوظيفة.',
+'implants_desc'=>'حل ثابت لتعويض الأسنان المفقودة من خلال وضع زرعة داخل العظم ثم تركيب السن فوقها لاستعادة الشكل والوظيفة, والثقة أثناء االبتسام والمضغ..',
 
 
 'fillings_desc'=>'حشوات تجميلية لعلاج التسوس أو ترميم الأسنان المتضررة مع الحفاظ على مظهر قريب من لون الأسنان الطبيعي.',
 
 
-'pediatric_desc'=>'عناية لطيفة ومريحة بأسنان الأطفال تشمل الفحص الدوري، التنظيف، علاج التسوس، والمتابعة الوقائية.',
+'pediatric_desc'=>'عناية لطيفة ومريحة بأسنان الأطفال تشمل الفحص الدوري، التنظيف، علاج التسوس، والمتابعة الوقائية, وتقييم الحاجة للتقويم في عمر مبكر.',
 
 
-'facial_aesthetics_desc'=>'خدمات تجميل الوجه غير الجراحي لتحسين تناسق ملامح الوجه بطريقة طبيعية وآمنة بما ينسجم مع الابتسامة.',
+'facial_aesthetics_desc'=>'خدمات تجميل الوجه غير الجراحي لتحسين تناسق ملامح الوجه بطريقة طبيعية وآمنة بما ينسجم مع الابتسامة وشكل الوجه العام.',
 /* Location */
 
 'location_title'=>'موقع العيادة',
@@ -217,6 +218,17 @@ $translations = [
 'cases'=>'الحالات',
 
 'reviews'=>'التقييمات',
+
+// admin panel
+
+'admin_panel'=>'لوحة التحكم',
+'logout'=>'تسجيل الخروج',
+'language'=>'English',
+'dashboard'=>'لوحة التحكم المسؤول',
+'gallery'=>'معرض الصور',
+'reviews'=>'التقييمات',
+'messages'=>'الرسائل',
+'cases'=>'الحالات',
 
 'language'=>'English'
 
@@ -430,6 +442,16 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 
 'reviews'=>'Reviews',
 
+// admin panel
+'admin_panel'=>'Admin Dashboard',
+'logout'=>'Logout',
+'language'=>'العربية',
+'dashboard'=>'Admin dashboard',
+'gallery'=>'Gallery',
+'reviews'=>'Reviews',
+'messages'=>'Messages',
+'cases'=>'Cases',
+
 'language'=>'العربية'
 
 ]
@@ -448,17 +470,51 @@ function t($key){
 
 
 
+// function switch_lang_url($targetLang){
+
+//     $params=$_GET;
+
+//     $params['lang']=$targetLang;
+
+//     $query=http_build_query($params);
+
+//     $path=strtok($_SERVER["REQUEST_URI"],'?');
+
+//     return $path.'?'.$query;
+
+// }
+
+if(!function_exists('switch_lang_url')){
+
+
 function switch_lang_url($targetLang){
 
-    $params=$_GET;
 
-    $params['lang']=$targetLang;
+    $currentUrl = $_SERVER['REQUEST_URI'];
 
-    $query=http_build_query($params);
 
-    $path=strtok($_SERVER["REQUEST_URI"],'?');
+    $currentUrl = preg_replace(
+        '/([&?])lang=[^&]*(&?)/',
+        '$1',
+        $currentUrl
+    );
 
-    return $path.'?'.$query;
+
+    $currentUrl = rtrim($currentUrl,'?&');
+
+
+    if(strpos($currentUrl,'?') !== false){
+
+        return $currentUrl.'&lang='.$targetLang;
+
+    }
+
+
+    return $currentUrl.'?lang='.$targetLang;
+
+
+}
+
 
 }
 

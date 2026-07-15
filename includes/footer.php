@@ -54,7 +54,7 @@ alt="Dr Nadeen Logo">
 </a>
 
 
-<a href="services.php">
+<a href="#services-section">
 
 <?=t('services')?>
 
@@ -78,7 +78,7 @@ alt="Dr Nadeen Logo">
 
 
 
-<a href="contact.php">
+<a href="#location-section">
 
 <?=t('contact')?>
 
@@ -153,7 +153,7 @@ WhatsApp
 document.write(new Date().getFullYear())
 </script>
 
-© 
+Copyright © 
 
 <?=t('clinic_owner')?>
 

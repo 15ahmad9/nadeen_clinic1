@@ -50,7 +50,8 @@ exit;
 <html>
 
 <head>
-
+<link rel="icon"
+href="../assets/images/logo.png">
 <link rel="stylesheet" href="admin.css">
 
 </head>
