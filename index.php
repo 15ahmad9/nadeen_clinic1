@@ -14,6 +14,11 @@ dir="<?=t('dir')?>">
 
 <link rel="stylesheet" href="assets/css/style.css">
 
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 
@@ -70,7 +75,7 @@ dir="<?=t('dir')?>">
 
 
 <a class="btn whatsapp"
-href="https://wa.me/962796900000"
+href="https://wa.me/+962796978754"
 target="_blank">
 
 <?=t('whatsapp')?>
@@ -80,9 +85,9 @@ target="_blank">
 
 
 <a class="btn call"
-href="tel:0796900000">
+href="tel:+962796978754">
 
-<?=t('call')?>
+<?=t('call' )?> +962796978754
 
 </a>
 
@@ -102,40 +107,6 @@ target="_blank">
 </div>
 
 
-<div class="hero-certificates">
-
-
-<div>
-<span>✓</span>
-<?=t('certificate_1')?>
-</div>
-
-
-<div>
-<span>✓</span>
-<?=t('certificate_2')?>
-</div>
-
-
-<div>
-<span>✓</span>
-<?=t('certificate_3')?>
-</div>
-
-
-<div>
-<span>✓</span>
-<?=t('certificate_4')?>
-</div>
-
-<div>
-<span>✓</span>
-<?=t('certificate_5')?>
-</div>
-
-</div>
-
-
 </div>
 
 <div class="hero-image">
@@ -146,21 +117,6 @@ target="_blank">
 
 <img src="assets/images/doctor_hero.png"
 alt="Dr Nadeen">
-
-
-<div class="doctor-card">
-
-<h4>
-<?=t('doctor_name')?>
-</h4>
-
-
-<p>
-<?=t('doctor_specialty')?>
-</p>
-
-
-</div>
 
 
 </div>
@@ -304,94 +260,64 @@ alt="Dr. Nadeen Attari">
 <div class="services-grid">
 
 
+<?php
 
-<div class="service-card">
+$services=[
 
-<div class="service-icon">
-🦷
-</div>
+['orthodontics','orthodontics_desc'],
 
-<h3>
-<?=t('orthodontics')?>
-</h3>
+['metal_braces','metal_braces_desc'],
 
-<p>
-<?=t('orthodontics_desc')?>
-</p>
+['clear_aligners','clear_aligners_desc'],
 
-</div>
+['functional_appliances','functional_appliances_desc'],
 
+['retainers','retainers_desc'],
 
+['cleaning','cleaning_desc'],
 
+['whitening','whitening_desc'],
 
-<div class="service-card">
+['veneers','veneers_desc'],
 
-<div class="service-icon">
-✨
-</div>
+['crowns','crowns_desc'],
 
+['implants','implants_desc'],
 
-<h3>
-<?=t('implants')?>
-</h3>
+['fillings','fillings_desc'],
 
+['pediatric','pediatric_desc'],
 
-<p>
-<?=t('implants_desc')?>
-</p>
+['facial_aesthetics','facial_aesthetics_desc']
+
+];
 
 
-</div>
+foreach($services as $service):
 
-
-
+?>
 
 
 <div class="service-card">
 
-
-<div class="service-icon">
-😁
-</div>
-
-
 <h3>
-<?=t('veneers')?>
+
+<?=t($service[0])?>
+
 </h3>
 
 
 <p>
-<?=t('veneers_desc')?>
+
+<?=t($service[1])?>
+
 </p>
 
 
 </div>
 
 
-
-
-
-<div class="service-card">
-
-
-<div class="service-icon">
-⭐
-</div>
-
-
-<h3>
-<?=t('whitening')?>
-</h3>
-
-
-<p>
-<?=t('whitening_desc')?>
-</p>
-
-
-</div>
-
-
+<?php endforeach; ?>
 
 
 </div>
@@ -477,11 +403,36 @@ alt="Dr. Nadeen Attari">
 
 </section>
 
-
-<section class="location-section">
+<section class="location-section" id="location-section">
 
 
 <div class="location-container">
+
+
+<div class="location-title">
+
+
+<span>
+<?=t('location_title')?>
+</span>
+
+
+<h2>
+<?=t('clinic_name')?>
+</h2>
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="location-content">
+
 
 
 <div class="map">
@@ -489,10 +440,6 @@ alt="Dr. Nadeen Attari">
 
 <iframe 
 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.2292773442277!2d35.89917361353724!3d31.978799105150948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca148adbefc8d%3A0x7ae7dffe654e6345!2zRHIuIE5hZGVlbiBBdHRhcmkgT3J0aG9kb250aWNzICYgRGVudGFsIENsaW5pYyB8INivLiDZhtin2K_ZitmGINi52LfYp9ix2Yog2YTYqtmC2YjZitmFINin2YTYo9iz2YbYp9mGINmI2LfYqCDYp9mE2KPYs9mG2KfZhg!5e1!3m2!1sen!2sjo!4v1783511376776!5m2!1sen!2sjo"
-width="600"
-height="450"
-style="border:0;"
-allowfullscreen=""
 loading="lazy">
 </iframe>
 
@@ -501,60 +448,62 @@ loading="lazy">
 
 
 
-<div class="location-info">
+<div class="contact-area">
 
+<p class="address">
 
-<h2>
-<?=t('location_title')?>
-</h2>
-
-
-
-<p>
-<?=t('phone')?>:
-<br>
-0796900000
-</p>
-
-
-
-<p>
-<?=t('whatsapp')?>:
-<br>
-
-<a href="https://wa.me/962796900000">
-0796900000
-</a>
-
-</p>
-
-
-
-<p>
-
-<?=t('instagram')?>:
-
-<br>
-
-<a href="https://www.instagram.com/drnadeenattari">
-
-@drnadeenattari
-
-</a>
+📍 <?=t('clinic_address')?>
 
 
 </p>
 
 
+<p class="working-hours">
 
-<h3>
-<?=t('working_hours')?>
-</h3>
-
-
-<p>
 <?=t('working_time')?>
+
 </p>
+
+<div class="contact-buttons">
+
+
+
+<a class="contact-btn phone"
+href="tel:+962796978754">
+
++962796978754
+
+</a>
+
+
+
+
+<a class="contact-btn whatsapp"
+href="https://wa.me/+962796978754"
+target="_blank">
+
+<?=t('whatsapp')?>
+
+</a>
+
+
+
+
+<a class="contact-btn instagram"
+href="https://www.instagram.com/drnadeenattari"
+target="_blank">
+
+<?=t('instagram')?>
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
 
 
 </div>
@@ -568,6 +517,18 @@ loading="lazy">
 <?php include "includes/footer.php"; ?>
 
 <script src="assets/js/main.js"></script>
+
+<a 
+class="floating-whatsapp"
+href="https://wa.me/+962796978754"
+target="_blank"
+aria-label="WhatsApp">
+
+<span>
+<i class="fa-brands fa-whatsapp"></i>
+</span>
+
+</a>
 
 </body>
 

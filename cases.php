@@ -74,6 +74,7 @@ href="assets/css/cases.css">
 
 
 <!-- Before Image -->
+<div class="before-container">
 
 <img 
 src="uploads/gallery/<?= htmlspecialchars($case['before_image']) ?>"
@@ -81,8 +82,11 @@ class="before-image"
 alt="Before">
 
 
+    <span class="before-label">
+        Before
+    </span>
 
-
+</div>
 
 <!-- After Image -->
 
@@ -93,7 +97,9 @@ alt="Before">
 src="uploads/gallery/<?= htmlspecialchars($case['after_image']) ?>"
 class="after-image"
 alt="After">
-
+<span class="after-label">
+After
+</span>
 
 </div>
 
@@ -107,9 +113,8 @@ alt="After">
 
 
 <div class="slider-button">
-↔
+<span>↔</span>
 </div>
-
 
 </div>
 
@@ -124,8 +129,8 @@ type="range"
 min="0"
 max="100"
 value="50"
-class="slider-control">
-
+class="slider-control"
+dir="ltr">
 
 
 </div>
@@ -164,23 +169,22 @@ slider.addEventListener('input', function(){
 let value = this.value;
 
 
-let container =
-this.parentElement;
+let container = this.closest('.before-after');
 
 
+// after width
 
 container.querySelector('.after-container')
 .style.width = value + "%";
 
 
+// line position
 
 container.querySelector('.slider-line')
 .style.left = value + "%";
 
 
-
 });
-
 
 });
 
