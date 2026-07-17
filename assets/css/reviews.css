@@ -40,7 +40,7 @@ box-shadow:
 
 transition:.3s;
 
-text-align:right;
+text-align: justify;
 
 }
 
@@ -112,11 +112,17 @@ color:#F4B400;
 
 
 
-.review-card p{
+.review-text{
+
+unicode-bidi: plaintext;
+
+text-align:start;
 
 line-height:1.8;
 
 color:#406763;
+
+direction: auto;
 
 }
 

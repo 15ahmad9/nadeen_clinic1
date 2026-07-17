@@ -10,7 +10,7 @@ $reviews=$pdo->query(
 SELECT * FROM reviews
 WHERE status='approved'
 ORDER BY id DESC
-LIMIT 6
+LIMIT 30
 "
 )->fetchAll();
 
@@ -28,6 +28,12 @@ dir="<?=t('dir')?>">
 
 <link rel="icon"
 href="assets/images/logo.png">
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <link rel="stylesheet"
 href="assets/css/style.css">
@@ -63,7 +69,16 @@ href="assets/css/reviews.css">
 
 
 <?php foreach($reviews as $review): ?>
+    
+<?php
 
+$text = trim($review['review']);
+
+$isArabic = preg_match('/\p{Arabic}/u', $text);
+
+$direction = $isArabic ? 'rtl' : 'ltr';
+
+?>
 
 <a 
 href="https://maps.app.goo.gl/cv6Pss4AknpRn5Q3A"
@@ -128,8 +143,8 @@ echo $i <= $review['rating']
 </div>
 
 
-
-<p>
+<p class="review-text"
+dir="auto">
 
 <?=htmlspecialchars($review['review'])?>
 
@@ -165,7 +180,7 @@ class="google-btn">
 
 <?php include "includes/footer.php"; ?>
 
-
+<script src="assets/js/main.js"></script>
 </body>
 
 </html>

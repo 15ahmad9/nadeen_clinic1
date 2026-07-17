@@ -511,7 +511,7 @@ margin-bottom:15px;
 .hero-content h2{
 
 
-font-size:28px;
+font-size:26px;
 
 color:var(--primary);
 
@@ -528,7 +528,7 @@ font-size:20px;
 
 line-height:2;
 
-color:var(--secondary);
+color:var(--dark);
 
 
 }
@@ -700,6 +700,98 @@ background:#c13584;
 
 }
 
+/* Doctor Name Card */
+
+.doctor-name-card{
+
+position:absolute;
+
+bottom:-25px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:white;
+
+padding:15px 30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.15);
+
+min-width:230px;
+
+z-index:5;
+
+}
+
+
+.doctor-name-card h3{
+
+margin:0;
+
+font-size:22px;
+
+color:#12394d;
+
+font-weight:bold;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:900px){
+
+
+.doctor-name-card{
+
+bottom:15px;
+
+min-width:200px;
+
+padding:12px 20px;
+
+}
+
+
+
+.doctor-name-card h3{
+
+font-size:18px;
+
+}
+
+}
+
+    @media (max-width: 425px) {
+    .doctor-name-card {
+        bottom: 15px;
+    min-width: 200px;
+    padding: 12px 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .doctor-name-card {
+        bottom: 60px;
+    min-width: 200px;
+    padding: 12px 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .doctor-name-card {
+        bottom: 140px;
+    min-width: 200px;
+    padding: 10px 20px;
+    }
+}
 
 /* =====================
    ABOUT SECTION
@@ -820,6 +912,7 @@ flex-wrap:wrap;
 
 margin-top:30px;
 
+/* place-content: center; */
 }
 
 
@@ -844,6 +937,9 @@ font-weight:bold;
 
 @media(max-width:900px){
 
+.about-tags{
+    place-content: center;
+}
 
 .about-container{
 
@@ -868,7 +964,7 @@ text-align:center;
 
 .about-content h2{
 
-font-size:36px;
+font-size:30px;
 
 }
 
@@ -2208,11 +2304,11 @@ background:#12394d;
 
 color:white;
 
-padding:8px 22px;
+padding:5px 15px;
 
 border-radius:25px;
 
-font-size:15px;
+font-size:11px;
 
 font-weight:600;
 
@@ -2232,11 +2328,11 @@ background:#4aad9f;
 
 color:white;
 
-padding:8px 22px;
+padding:5px 15px;
 
 border-radius:25px;
 
-font-size:15px;
+font-size:11px;
 
 font-weight:600;
 
@@ -2283,7 +2379,7 @@ font-weight:600;
 .before-after{
 
 
-    height:350px;
+    height:175px;
 
 
 }
@@ -2292,11 +2388,8 @@ font-weight:600;
 
 .after-image{
 
-
-    width:600px;
-
-
-    height:350px;
+    width: 345px;
+    height: 175px;
 
 
 }
@@ -2384,7 +2477,7 @@ gap:25px;
 
 .service-card{
 
-direction:rtl;
+/* direction:rtl; */
 
 background:white;
 
@@ -2892,7 +2985,7 @@ body{
 
     .gallery-main{
 
-        width:90%;
+        width:70%;
 
         height:280px;
 
@@ -3143,7 +3236,7 @@ img{
 }
 
 .hero{
- padding:1235px 0 115px;
+ padding:1250px 0 130px;
 }
 
 .hero-container{
@@ -3483,6 +3576,86 @@ display:none;
 .nav-links.active{
 
 display:flex;
+
+}
+
+
+}
+
+
+/* ==========================
+ ORTHODONTICS MAIN CARD
+========================== */
+
+
+.orthodontics-main{
+
+grid-column:span 2;
+
+}
+
+
+.orthodontics-types{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+
+
+.orthodontics-types div{
+
+background:#F8FAFC;
+
+padding:15px;
+
+border-radius:15px;
+
+}
+
+
+
+.orthodontics-types h4{
+
+color:var(--dark);
+
+margin-bottom:10px;
+
+font-size:17px;
+
+}
+
+
+
+.orthodontics-types p{
+
+font-size:14px;
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+.orthodontics-main{
+
+grid-column:span 2;
+
+}
+
+
+
+.orthodontics-types{
+
+grid-template-columns:1fr;
 
 }
 

@@ -56,12 +56,12 @@
 </a>
 
 
-<a href="#location-section">
+<a href="index.php#location-section">
 <?=t('location')?>
 </a>
 
 
-<a href="#location-section">
+<a href="index.php#location-section">
 <?=t('contact')?>
 </a>
 

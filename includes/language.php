@@ -24,7 +24,6 @@ $translations = [
 /* General */
 
 'clinic_name'=>'عيادة الدكتورة نادين عطاري لتقويم الأسنان وطب الأسنان',
-
 'home'=>'الرئيسية',
 'about'=>'عن الدكتورة',
 'services'=>'الخدمات',
@@ -53,7 +52,8 @@ $translations = [
 
 'instagram'=>'إنستغرام',
 
-
+'doctor_badge_name'=>'الدكتورة نادين عطاري',
+'doctor_badge_specialty'=>'طبيبة تقويم أسنان',
 
 /* About */
 
@@ -225,7 +225,7 @@ $translations = [
 'logout'=>'تسجيل الخروج',
 'language'=>'English',
 'dashboard'=>'لوحة التحكم المسؤول',
-'gallery'=>'معرض الصور',
+'gallery'=>' صور',
 'reviews'=>'التقييمات',
 'messages'=>'الرسائل',
 'cases'=>'الحالات',
@@ -275,7 +275,8 @@ Our clinic also offers non-surgical facial aesthetics to enhance natural facial 
 
 'instagram'=>'Instagram',
 
-
+'doctor_badge_name'=>'Dr. Nadeen Attari',
+'doctor_badge_specialty'=>'Orthodontist',
 
 /* About */
 

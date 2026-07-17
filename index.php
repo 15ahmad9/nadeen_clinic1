@@ -195,6 +195,16 @@ target="_blank">
 alt="Dr Nadeen Attari Orthodontist in Amman Jordan">
 
 
+<div class="doctor-name-card">
+
+<h3>
+<?=t('doctor_badge_name')?>
+</h3>
+
+
+</div>
+
+
 </div>
 
 
@@ -336,19 +346,70 @@ alt="Dr. Nadeen Attari">
 <div class="services-grid">
 
 
+<!-- Main Orthodontics Card -->
+
+<div class="service-card orthodontics-main">
+
+<h3>
+<?=t('orthodontics')?>
+</h3>
+
+
+<p>
+<?=t('orthodontics_desc')?>
+</p>
+
+
+<div class="orthodontics-types">
+
+
+<div>
+<h4>
+<?=t('metal_braces')?>
+</h4>
+
+<p>
+<?=t('metal_braces_desc')?>
+</p>
+</div>
+
+
+
+<div>
+<h4>
+<?=t('clear_aligners')?>
+</h4>
+
+<p>
+<?=t('clear_aligners_desc')?>
+</p>
+</div>
+
+
+
+<div>
+<h4>
+<?=t('functional_appliances')?>
+</h4>
+
+<p>
+<?=t('functional_appliances_desc')?>
+</p>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
 <?php
 
 $services=[
-
-['orthodontics','orthodontics_desc'],
-
-['metal_braces','metal_braces_desc'],
-
-['clear_aligners','clear_aligners_desc'],
-
-['functional_appliances','functional_appliances_desc'],
-
-['retainers','retainers_desc'],
 
 ['cleaning','cleaning_desc'],
 
@@ -377,16 +438,12 @@ foreach($services as $service):
 <div class="service-card">
 
 <h3>
-
 <?=t($service[0])?>
-
 </h3>
 
 
 <p>
-
 <?=t($service[1])?>
-
 </p>
 
 
@@ -397,6 +454,7 @@ foreach($services as $service):
 
 
 </div>
+
 
 
 </section>
@@ -534,11 +592,11 @@ loading="lazy">
 </p>
 
 
-<p class="working-hours">
+<!-- <p class="working-hours">
 
 <?=t('working_time')?>
 
-</p>
+</p> -->
 
 <div class="contact-buttons">
 
