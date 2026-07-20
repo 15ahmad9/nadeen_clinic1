@@ -255,3 +255,29 @@ document
 
 }
 
+
+
+/* ==============================
+   Scroll Reveal Animation
+============================== */
+
+const revealElements = document.querySelectorAll(
+    '.hero-image, .about-image, .service-card, .about-tags span, .contact-btn'
+);
+
+const revealObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+},{
+    threshold:0.15
+});
+
+
+revealElements.forEach(el=>{
+    revealObserver.observe(el);
+});
+

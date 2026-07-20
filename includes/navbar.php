@@ -55,6 +55,11 @@
 <?=t('reviews')?>
 </a>
 
+<a href="#services-section">
+
+<?=t('services')?>
+
+</a>
 
 <a href="index.php#location-section">
 <?=t('location')?>

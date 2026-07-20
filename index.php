@@ -154,7 +154,7 @@ content="website">
 href="https://wa.me/+962796978754"
 target="_blank">
 
-<?=t('whatsapp')?>
+<i class="fa-brands fa-whatsapp"></i> <?=t('whatsapp')?>
 
 </a>
 
@@ -163,7 +163,7 @@ target="_blank">
 <a class="btn call"
 href="tel:+962796978754">
 
-<?=t('call' )?> +962796978754
+<i class="fa-solid fa-phone"></i> <?=t('call' )?> +962796978754
 
 </a>
 
@@ -174,7 +174,7 @@ href="tel:+962796978754">
 href="https://www.instagram.com/drnadeenattari"
 target="_blank">
 
-<?=t('instagram')?>
+<i class="fa-brands fa-instagram"></i> <?=t('instagram')?>
 
 </a>
 
@@ -290,28 +290,18 @@ alt="Dr. Nadeen Attari">
 <div class="about-tags">
 
 
-<span>
-<?=t('certificate_1')?>
-</span>
+<span><i class="fa-solid fa-circle-check"></i> <?=t('certificate_1')?></span>
 
 
-<span>
-<?=t('certificate_2')?>
-</span>
+<span><i class="fa-solid fa-circle-check"></i> <?=t('certificate_2')?></span>
 
 
-<span>
-<?=t('certificate_3')?>
-</span>
+<span><i class="fa-solid fa-circle-check"></i> <?=t('certificate_3')?></span>
 
 
-<span>
-<?=t('certificate_4')?>
-</span>
+<span><i class="fa-solid fa-circle-check"></i> <?=t('certificate_4')?></span>
 
-<span>
-<?=t('certificate_5')?>
-</span>
+<span><i class="fa-solid fa-circle-check"></i> <?=t('certificate_5')?></span>
 
 </div>
 
@@ -345,10 +335,27 @@ alt="Dr. Nadeen Attari">
 
 <div class="services-grid">
 
+<?php
+$serviceIcons = [
+    'shield' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.7v5.1c0 4.2 2.7 8 6.5 9.2 3.8-1.2 6.5-5 6.5-9.2V5.7L12 3Z"/><path d="M9.2 10.2c.8-.8 1.8-1.2 2.8-1.2s2 .4 2.8 1.2"/></svg>',
+    'wand' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L9 20H4v-5L15 4Z"/><path d="m13 6 5 5"/><path d="M5 4v3M3.5 5.5h3M19 15v3M17.5 16.5h3"/></svg>',
+    'drop' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>',
+    'smile' => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M9 10h.01M15 10h.01M8.5 14c1 1.3 2.1 2 3.5 2s2.5-.7 3.5-2"/></svg>',
+    'crown' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 7 4 4 4-6 4 6 4-4-2 10H6L4 7Z"/><path d="M6 20h12"/></svg>',
+    'implant' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M8 6h8M9 10h6M10 14h4M9 18h6"/><path d="m10 3 2-2 2 2"/></svg>',
+    'pulse' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>',
+    'sliders' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v6M6 13v8M12 3v10M12 17v4M18 3v3M18 10v11"/><path d="M4 9h4M10 13h4M16 6h4M16 10h4"/></svg>',
+    'anchor' => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M12 7v12M5 12H2c0 5 4.5 9 10 9s10-4 10-9h-3M8 12h8"/></svg>'
+];
+?>
 
 <!-- Main Orthodontics Card -->
 
 <div class="service-card orthodontics-main">
+
+<div class="service-icon tone-rose" aria-hidden="true">
+<?= $serviceIcons['shield'] ?>
+</div>
 
 <h3>
 <?=t('orthodontics')?>
@@ -411,21 +418,21 @@ alt="Dr. Nadeen Attari">
 
 $services=[
 
-['cleaning','cleaning_desc'],
+['cleaning','cleaning_desc','wand','tone-fuchsia'],
 
-['whitening','whitening_desc'],
+['whitening','whitening_desc','drop','tone-indigo'],
 
-['veneers','veneers_desc'],
+['veneers','veneers_desc','smile','tone-purple'],
 
-['crowns','crowns_desc'],
+['crowns','crowns_desc','crown','tone-orange'],
 
-['implants','implants_desc'],
+['implants','implants_desc','implant','tone-cyan'],
 
-['fillings','fillings_desc'],
+['fillings','fillings_desc','pulse','tone-green'],
 
-['pediatric','pediatric_desc'],
+['pediatric','pediatric_desc','smile','tone-blue'],
 
-['facial_aesthetics','facial_aesthetics_desc']
+['facial_aesthetics','facial_aesthetics_desc','sliders','tone-teal']
 
 ];
 
@@ -436,6 +443,10 @@ foreach($services as $service):
 
 
 <div class="service-card">
+
+<div class="service-icon <?=$service[3]?>" aria-hidden="true">
+<?=$serviceIcons[$service[2]]?>
+</div>
 
 <h3>
 <?=t($service[0])?>
@@ -546,14 +557,14 @@ foreach($services as $service):
 <div class="location-title">
 
 
-<span>
-<?=t('location_title')?>
-</span>
-
-
 <h2>
-<?=t('clinic_name')?>
+<?=t('location_title')?>
 </h2>
+
+
+<span>
+<?=t('clinic_name')?>
+</span>
 
 
 
@@ -603,9 +614,11 @@ loading="lazy">
 
 
 <a class="contact-btn phone"
-href="tel:+962796978754">
+href="tel:+962796978754"
+aria-label="<?=t('call')?>">
 
-+962796978754
+<i class="fa-solid fa-phone" aria-hidden="true"></i>
+<span>+962796978754</span>
 
 </a>
 
@@ -614,9 +627,12 @@ href="tel:+962796978754">
 
 <a class="contact-btn whatsapp"
 href="https://wa.me/+962796978754"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer"
+aria-label="<?=t('whatsapp')?>">
 
-<?=t('whatsapp')?>
+<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+<span><?=t('whatsapp')?></span>
 
 </a>
 
@@ -625,9 +641,12 @@ target="_blank">
 
 <a class="contact-btn instagram"
 href="https://www.instagram.com/drnadeenattari"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer"
+aria-label="<?=t('instagram')?>">
 
-<?=t('instagram')?>
+<i class="fa-brands fa-instagram" aria-hidden="true"></i>
+<span><?=t('instagram')?></span>
 
 </a>
 
